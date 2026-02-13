@@ -140,71 +140,15 @@
                             <span class="timeline-date">Jan 2026</span>
                         </div>
                         <p class="project-description">
-                            This project is based on provably robust neural networks, following the work of 
-                            <strong>Eric Wong and Zico Kolter</strong> in "Provable Defenses Against Adversarial 
-                            Examples via the Convex Outer Adversarial Polytope" and connects to adversarial attacks 
-                            from <strong>Nicholas Carlini and David Wagner</strong>.
-                        </p>
-                        
-                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">🔎 Problem: Adversarial Attacks on Neural Networks</h4>
-                        <p class="project-description">
-                            Modern neural networks can be fooled by adversarial examples — tiny, imperceptible 
-                            perturbations to an input image that cause misclassification. Formally, an attacker 
-                            solves: max<sub>‖x′−x‖<sub>∞</sub>≤ε</sub> L(f<sub>θ</sub>(x′), y<sub>true</sub>), 
-                            meaning: stay within an ε-ball around the input, maximize the model's loss, and cause 
-                            misclassification. Standard networks have no guarantees against this.
-                        </p>
-                        
-                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">🧠 What This Project Does</h4>
-                        <p class="project-description">
-                            Instead of just attacking networks, this project:
+                            This project builds neural networks that are provably resistant to adversarial attacks, 
+                            following the work of <strong>Eric Wong and Zico Kolter</strong>.
                         </p>
                         <ul class="timeline-description">
-                            <li>Reformulates adversarial robustness as an optimization problem</li>
-                            <li>Applies convex relaxation to handle ReLU non-convexity</li>
-                            <li>Uses Lagrangian duality and Fenchel conjugates</li>
-                            <li>Derives a dual network that computes a robustness certificate</li>
-                            <li>Enables provably robust training</li>
+                            <li>Neural networks can be tricked by tiny, invisible changes to images that cause them to misclassify inputs</li>
+                            <li>This project transforms the robustness problem into a form that allows us to mathematically guarantee protection against attacks</li>
+                            <li>Instead of just testing if attacks fail, we create a backward-pass network that computes a certificate proving no attack within a specific range can fool the model</li>
+                            <li>The model is trained to be inherently robust by incorporating these guarantees directly into the training process</li>
                         </ul>
-                        <p class="project-description">
-                            This transforms robustness from <em>"We tried attacks and they failed"</em> into 
-                            <em>"We mathematically prove no attack within ε can fool this model"</em>.
-                        </p>
-                        
-                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">🏗 Implementation Steps</h4>
-                        <ul class="timeline-description">
-                            <li><strong>Build a 3-layer ReLU neural network:</strong> Standard feedforward network 
-                                (z<sub>2</sub> = ReLU(W<sub>1</sub>x + b<sub>1</sub>), ẑ<sub>3</sub> = W<sub>2</sub>z<sub>2</sub> + b<sub>2</sub>) 
-                                trained on MNIST. Without ReLU → linear model; With ReLU → non-convex model.</li>
-                            <li><strong>Formulate adversarial attack as optimization:</strong> Rewrite as 
-                                min<sub>z</sub> c<sup>T</sup>ẑ<sub>3</sub> subject to ε-perturbation, network layer, 
-                                and ReLU constraints. Creates a non-convex optimization problem.</li>
-                            <li><strong>Convex relaxation of ReLU:</strong> Compute upper and lower bounds on 
-                                pre-activations, replace ReLU with convex hull relaxation. Converts feasible region 
-                                into a convex polytope — the key innovation.</li>
-                            <li><strong>Dualize the problem:</strong> Write Lagrangian, introduce dual variables, 
-                                use Fenchel conjugates, derive dual problem. By weak duality: d*(x,c) ≤ p*(x,c), 
-                                so if dual value is positive, we certify robustness.</li>
-                            <li><strong>Interpret dual as "backward network":</strong> Dual constraints form a backward 
-                                pass through the network with modified nonlinearities and ε-regularization. Defines 
-                                dual network g<sub>θ</sub>(c) where robustness certificate = d*(x,c) = J<sub>ε</sub>(x,g<sub>θ</sub>(c)).</li>
-                            <li><strong>Robustness certificate:</strong> For every incorrect class j, if 
-                                d*(x,c<sub>j</sub>) &gt; 0 where c<sub>j</sub> = y<sub>true</sub> − e<sub>j</sub>, 
-                                then no perturbation within ε can cause classification to class j. If true for all 
-                                j ≠ true class → model is provably robust at x.</li>
-                            <li><strong>Robust training:</strong> Instead of minimizing L(f<sub>θ</sub>(x),y), 
-                                minimize upper bound of max<sub>‖x′−x‖≤ε</sub> L(f<sub>θ</sub>(x′),y) using dual 
-                                certificate L(−J<sub>ε</sub>(x,g<sub>θ</sub>(...)),y). Trains network to be robust 
-                                by construction.</li>
-                        </ul>
-                        
-                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">🧮 Mathematical Tools Used</h4>
-                        <p class="project-description">
-                            This project combines convex optimization, Lagrangian duality, Fenchel conjugates, 
-                            norm duality (ℓ<sub>∞</sub> and ℓ<sub>1</sub> duality), polyhedral relaxation, and 
-                            robust optimization. It represents a deep intersection of machine learning, optimization 
-                            theory, and functional analysis.
-                        </p>
                         
                         <div class="project-screenshot">
                             <img src="projects/adversarial-screenshot.png" alt="Provably Robust Neural Network Visualization" onerror="this.style.display='none'">
