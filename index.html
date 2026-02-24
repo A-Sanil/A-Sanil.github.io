@@ -261,6 +261,70 @@
             <!-- Medical Projects -->
             <h3 class="subsection-title" style="margin-top: 4rem;">Medical Projects</h3>
             <div class="timeline">
+
+                <!-- Project: ProteinLLMV1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">ProteinLLMV1 — Protein Language Model</h3>
+                            <span class="timeline-date">Dec. 2025 – Present</span>
+                        </div>
+                        <p class="project-description">
+                            Building a protein language model (LLM) from scratch based on the <strong>nanoGPT</strong> 
+                            architecture to predict protein function, enzymatic activity, and subcellular localization.
+                            The system combines a custom-trained transformer with state-of-the-art tools like 
+                            <strong>ESMFold</strong> for 3D structure prediction, served through a full-stack 
+                            web application (FastAPI backend + React/Next.js frontend).
+                        </p>
+
+                        <p class="project-description" style="margin-top: 0.8rem;">
+                            <strong>BLOSUM62 Substitution Matrix:</strong> A log-odds scoring matrix where 
+                            each cell <em>BLOSUM[i][j]</em> encodes the evolutionary likelihood of amino acid 
+                            <em>i</em> being substituted by <em>j</em>. Positive scores represent biologically 
+                            favored substitutions (e.g., Leu↔Ile); negative scores penalize dissimilar swaps. 
+                            It informs the model's embedding initialization and similarity-aware loss functions.
+                        </p>
+
+                        <div class="project-screenshot" style="background:#1a1a2e; padding:1rem; border-radius:8px; margin-top:1rem;">
+                            <img src="projects/blosum62-matrix.svg" alt="BLOSUM62 Substitution Matrix" style="width:100%; max-width:600px; display:block; margin:0 auto;">
+                            <p class="screenshot-caption" style="color:#a8d8ea;">BLOSUM62 substitution matrix — blue = conserved substitutions, red = penalized substitutions</p>
+                        </div>
+
+                        <p class="project-description" style="margin-top: 0.8rem;">
+                            <strong>ESMFold Integration:</strong> ESMFold (Meta AI) predicts 3D protein 
+                            structures directly from sequence in seconds — without needing multiple sequence 
+                            alignments. The system pipes protein sequences through ESMFold to produce 
+                            atomic-level coordinates colored by per-residue confidence (pLDDT score), 
+                            visualized interactively in the web UI via Mol*/NGL Viewer.
+                        </p>
+
+                        <p class="project-description" style="margin-top: 0.8rem;">
+                            <strong>nanoGPT Architecture:</strong> The model is adapted from Karpathy's nanoGPT 
+                            with a protein-specific tokenizer (20 amino acids + special tokens), 12 transformer 
+                            layers, 12 attention heads, and 768-dimensional embeddings. Pre-training uses 
+                            Masked Language Modeling (MLM) on UniProt/Swiss-Prot sequences; fine-tuning 
+                            targets GO term prediction, EC number classification, and localization.
+                        </p>
+
+                        <div class="timeline-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Transformers</span>
+                            <span class="tag">nanoGPT</span>
+                            <span class="tag">ESMFold</span>
+                            <span class="tag">BLOSUM62</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">React / Next.js</span>
+                            <span class="tag">Biopython</span>
+                            <span class="tag">UniProt</span>
+                            <span class="tag">Protein ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/A-Sanil" target="_blank" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -412,10 +476,6 @@
                     <a href="mailto:Sanilaadityan@gmail.com" class="contact-link">
                         <span class="contact-icon">✉</span>
                         <span>Sanilaadityan@gmail.com</span>
-                    </a>
-                    <a href="tel:650-924-5519" class="contact-link">
-                        <span class="contact-icon">📞</span>
-                        <span>650-924-5519</span>
                     </a>
                     <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="contact-link">
                         <span class="contact-icon">💼</span>
