@@ -31,16 +31,15 @@
         <div class="container home-container">
             <div class="home-content">
                 <h1 class="home-title">Aaditya Sanil</h1>
-                <p class="home-subtitle">Computer Science & Molecular Cell Biology Student at UC Berkeley</p>
+                <p class="home-subtitle">Computer Science Student at UC Berkeley</p>
                 <p class="home-description">
-                    Passionate about computational biology, machine learning, and software engineering. 
-                    Building robust systems that bridge computer science and biological research.
+                    Passionate about machine learning, software engineering, and building robust, scalable systems.
                 </p>
                 <div class="home-links">
                     <a href="Sanil A Resume.pdf" target="_blank" class="primary-button"><i class="fa-solid fa-file-pdf"></i> Resume</a>
                     <a href="https://github.com/A-Sanil" target="_blank" class="icon-button" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="icon-button" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="mailto:Sanilaadityan@gmail.com" class="icon-button" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="mailto:asanil@berkeley.edu" class="icon-button" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
             <div class="home-image">
@@ -68,9 +67,9 @@
                         </div>
                         <p class="timeline-location">Berkeley, CA</p>
                         <ul class="timeline-description">
-                            <li>Refactored a Julia simulation backend into a scalable K-buffer architecture with dynamic population sizing and carrying-capacity control (up to 100,000 entities/run) and distributed execution across 23 worker processes.</li>
-                            <li>Built and hardened the experiment pipeline with defensive sampling, bounds/fallback safeguards, and reproducible Julia + R outputs exporting 26 telemetry fields/run for automated analysis and regression checks.</li>
-                            <li>Implemented configurable runtime controls to improve debugging and reproducibility across cluster environments.</li>
+                            <li>Refactored a Julia simulation backend into a scalable K-buffer architecture supporting dynamic population modeling (100,000+ entities/run) and distributed execution across 23 worker processes.</li>
+                            <li>Built reproducible data pipelines exporting 26 structured telemetry fields/run for downstream statistical analysis, trend evaluation, and automated regression validation.</li>
+                            <li>Implemented defensive sampling, parameter validation, and logging safeguards to improve environment consistency.</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">Julia</span>
@@ -94,9 +93,9 @@
                         </div>
                         <p class="timeline-location">Los Angeles, CA</p>
                         <ul class="timeline-description">
-                            <li>Contributed to IGN’s IMAGINE AI platform by cleaning and analyzing 5,000+ survey responses to model Gen Z gaming and entertainment behaviors for audience segmentation.</li>
-                            <li>Analyzed industry practices and market trends to synthesize survey data, providing actionable recommendations on new technology adoption and implementation.</li>
-                            <li>Translated research and model results into product recommendations and prototype deliverables for AI-driven personas, trend detection, and real-time audience insights.</li>
+                            <li>Developed training data pipelines for an Imagine AI by analyzing user queries and structuring high-quality input/output pairs using Python, Pandas, and Scikit-learn.</li>
+                            <li>Built models to segment user behavior and intent, enabling more precise content recommendations and improving targeted advertising strategies.</li>
+                            <li>Collaborated with cross-functional teams to translate model insights into actionable strategies, improving advertiser targeting based on user interaction data.</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">Python</span>
@@ -118,8 +117,9 @@
                         </div>
                         <p class="timeline-location">Berkeley, CA</p>
                         <ul class="timeline-description">
-                            <li>Gathered and synthesized industry data on machine learning in animation, transforming research into a compelling slide deck aimed at influencing DreamWorks' technology strategy.</li>
-                            <li>Assessed current and emerging ML practices across film studios, identifying opportunities and challenges and presenting actionable insights to support DreamWorks' decision-making.</li>
+                            <li>Synthesized technical research on applied machine learning systems, evaluating performance, scalability, and integration trade-offs for production pipelines.</li>
+                            <li>Designed and presented data-backed recommendations supporting the strategic adoption of ML technologies to optimize animation rendering workflows.</li>
+                            <li>Translated complex AI/ML models into actionable operational strategies, directly influencing technical roadmap decisions.</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">Research</span>
@@ -149,13 +149,11 @@
                         <span class="project-date">January 2026 - Present</span>
                         <h3 class="project-title">Provably Robust Deep Classifiers</h3>
                         <p class="project-description">
-                            This project builds neural networks that are provably resistant to adversarial attacks, 
-                            transforming the robustness problem into a form that allows us to mathematically guarantee protection against attacks.
+                            Trained a provably robust neural network by minimizing a worst-case adversarial loss upper bound, improving certified robustness over standard cross-entropy training.
                         </p>
                         <ul class="timeline-description">
-                            <li>Neural networks can be tricked by tiny, invisible changes to images that cause them to misclassify inputs</li>
-                            <li>Instead of just testing if attacks fail, we create a backward-pass network that computes a certificate proving no attack within a specific range can fool the model</li>
-                            <li>The model is trained to be inherently robust by incorporating these guarantees directly into the training process</li>
+                            <li>Implemented the Fast Gradient Sign Method (FGSM) to generate adversarial examples on MNIST, demonstrating classifier vulnerability to ℓ∞-bounded input perturbations.</li>
+                            <li>Derived convex relaxations of ReLU constraints using Lagrangian duality and Fenchel conjugates to construct a dual robustness certificate network.</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">PyTorch</span>
@@ -255,29 +253,11 @@
                     <div class="project-info">
                         <span class="project-date">Dec. 2025 – Present</span>
                         <h3 class="project-title">ProteinLLMV1</h3>
-                        <p class="project-description">
-                            Building a protein language model (LLM) from scratch based on the <strong>nanoGPT</strong> 
-                            architecture to predict protein function, enzymatic activity, and subcellular localization.
-                            The system combines a custom-trained transformer with state-of-the-art tools like 
-                            <strong>ESMFold</strong> for 3D structure prediction, served through a full-stack 
-                            web application (FastAPI backend + React/Next.js frontend).
-                        </p>
-
-                        <p class="project-description" style="margin-top: 0.8rem;">
-                            <strong>ESMFold Integration:</strong> ESMFold (Meta AI) predicts 3D protein 
-                            structures directly from sequence in seconds — without needing multiple sequence 
-                            alignments. The system pipes protein sequences through ESMFold to produce 
-                            atomic-level coordinates colored by per-residue confidence (pLDDT score), 
-                            visualized interactively in the web UI via Mol*/NGL Viewer.
-                        </p>
-
-                        <p class="project-description" style="margin-top: 0.8rem;">
-                            <strong>nanoGPT Architecture:</strong> The model is adapted from Karpathy's nanoGPT 
-                            with a protein-specific tokenizer (20 amino acids + special tokens), 12 transformer 
-                            layers, 12 attention heads, and 768-dimensional embeddings. Pre-training uses 
-                            Masked Language Modeling (MLM) on UniProt/Swiss-Prot sequences; fine-tuning 
-                            targets GO term prediction, EC number classification, and localization.
-                        </p>
+                        
+                        <ul class="timeline-description">
+                            <li>Engineered a custom protein language model utilizing the nanoGPT architecture (12 layers, 12 attention heads), pre-trained via Masked Language Modeling (MLM) on UniProt sequences.</li>
+                            <li>Developed a full-stack web application integrating ESMFold to dynamically generate and visualize atomic-level 3D protein structures with confidence scoring via a React frontend and FastAPI backend.</li>
+                        </ul>
 
                         <div class="timeline-tags">
                             <span class="tag">PyTorch</span>
@@ -304,12 +284,10 @@
                     <div class="project-info">
                         <span class="project-date">November 2025 - Present</span>
                         <h3 class="project-title">BMRC Logistics System</h3>
-                        <p class="project-description">
-                            Engineered a scalable full-stack inventory management system for Berkeley Medical Reserve Corps,
-                            implementing real-time stock tracking, expiration validation logic, and secure authentication workflows.
-                            Designed RESTful backend services and an interactive dashboard with dynamic search, CRUD operations,
-                            and automated alerting to improve data accuracy and operational efficiency.
-                        </p>
+                        <ul class="timeline-description">
+                            <li>Engineered a scalable inventory system utilizing relational database design, structured queries, and backend validation logic to ensure operational data integrity.</li>
+                            <li>Designed RESTful services and implemented CRUD operations to support real-time tracking, dynamic search filtering, and operational reporting for end-users.</li>
+                        </ul>
                         <div class="timeline-tags">
                             <span class="tag">Web Application</span>
                             <span class="tag">Inventory Management</span>
@@ -335,20 +313,21 @@
             <h2 class="section-title">Education</h2>
             <div class="education-content">
                 <div class="education-item">
-                    <h3 class="education-degree">B.A. Computer Science, Molecular Cell Biology</h3>
+                    <h3 class="education-degree">B.A. Computer Science</h3>
                     <p class="education-school">University of California, Berkeley</p>
                     <p class="education-location">Berkeley, CA</p>
                     <p class="education-date">Expected Graduation: May 2027</p>
+                    <p class="education-gpa" style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>GPA:</strong> 3.70</p>
         
                     <div class="education-coursework">
-                        <h4>Relevant Coursework</h4>
+                        <h4>Coursework</h4>
                         <div class="coursework-tags">
                             <span class="tag">Data Structures</span>
-                            <span class="tag">Discrete and Probability</span>
                             <span class="tag">Principles of Data Science</span>
                             <span class="tag">Optimization Models in Engineering</span>
-                            <span class="tag">Organic Chemistry II</span>
-                            <span class="tag">Biochemistry</span>
+                            <span class="tag">Computer Architecture</span>
+                            <span class="tag">Efficient Algorithms</span>
+                            <span class="tag">Probability and Random Processes</span>
                         </div>
                     </div>
                 </div>
@@ -425,10 +404,11 @@
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
                 <p class="contact-description">Feel free to reach out if you'd like to collaborate or have any questions!</p>
+                <p class="contact-description" style="margin-top:-1rem;"><strong>Phone:</strong> 650-924-5519</p>
                 <div class="contact-links">
-                    <a href="mailto:Sanilaadityan@gmail.com" class="contact-link">
+                    <a href="mailto:asanil@berkeley.edu" class="contact-link">
                         <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
-                        <span>Sanilaadityan@gmail.com</span>
+                        <span>asanil@berkeley.edu</span>
                     </a>
                     <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="contact-link">
                         <span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
