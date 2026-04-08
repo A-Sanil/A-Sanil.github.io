@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -26,18 +28,25 @@
 
     <!-- Home Section -->
     <section id="home" class="section home-section">
-        <div class="container">
+        <div class="container home-container">
             <div class="home-content">
                 <h1 class="home-title">Aaditya Sanil</h1>
                 <p class="home-subtitle">Computer Science & Molecular Cell Biology Student at UC Berkeley</p>
                 <p class="home-description">
                     Passionate about computational biology, machine learning, and software engineering. 
-                    Building systems that bridge computer science and biological research.
+                    Building robust systems that bridge computer science and biological research.
                 </p>
                 <div class="home-links">
-                    <a href="https://github.com/A-Sanil" target="_blank" class="link-button">GitHub</a>
-                    <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="link-button">LinkedIn</a>
-                    <a href="#contact" class="link-button">Contact</a>
+                    <a href="Sanil A Resume.pdf" target="_blank" class="primary-button"><i class="fa-solid fa-file-pdf"></i> Resume</a>
+                    <a href="https://github.com/A-Sanil" target="_blank" class="icon-button" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="icon-button" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:Sanilaadityan@gmail.com" class="icon-button" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="home-image">
+                <!-- Placeholder for Profile Picture -->
+                <div class="image-placeholder">
+                    <i class="fa-solid fa-user"></i>
                 </div>
             </div>
         </div>
@@ -130,30 +139,24 @@
             
             <!-- Public Projects -->
             <h3 class="subsection-title">Public Projects</h3>
-            <div class="timeline">
+            <div class="projects-grid">
                 <!-- Project: Adversarial Probability -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Provably Robust Deep Classifiers</h3>
-                            <span class="timeline-date">January 2026 - Present</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">January 2026 - Present</span>
+                        <h3 class="project-title">Provably Robust Deep Classifiers</h3>
                         <p class="project-description">
                             This project builds neural networks that are provably resistant to adversarial attacks, 
-                            following the work of <strong>Eric Wong and Zico Kolter</strong>.
+                            transforming the robustness problem into a form that allows us to mathematically guarantee protection against attacks.
                         </p>
                         <ul class="timeline-description">
                             <li>Neural networks can be tricked by tiny, invisible changes to images that cause them to misclassify inputs</li>
-                            <li>This project transforms the robustness problem into a form that allows us to mathematically guarantee protection against attacks</li>
                             <li>Instead of just testing if attacks fail, we create a backward-pass network that computes a certificate proving no attack within a specific range can fool the model</li>
                             <li>The model is trained to be inherently robust by incorporating these guarantees directly into the training process</li>
                         </ul>
-                        
-                        <div class="project-screenshot">
-                            <img src="projects/adversarial-screenshot.png" alt="Provably Robust Neural Network Visualization" onerror="this.style.display='none'">
-                            <p class="screenshot-caption">Robustness certificate visualization and adversarial polytope analysis</p>
-                        </div>
                         <div class="timeline-tags">
                             <span class="tag">PyTorch</span>
                             <span class="tag">NumPy</span>
@@ -168,23 +171,19 @@
                 </div>
 
                 <!-- Project: Coevolutionary Trait Dynamics Analyzer -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Coevolutionary Trait Dynamics Analyzer</h3>
-                            <span class="timeline-date">Oct. 2025 – Present</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projects/coevolution-screenshot.png" alt="Coevolutionary Analysis Screenshot" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">Oct. 2025 – Present</span>
+                        <h3 class="project-title">Coevolutionary Trait Dynamics Analyzer</h3>
                         <p class="project-description">
                             Analyzed coevolutionary simulations to study the emergence, stability, and divergence 
                             of traits across successive life cycles. Validated per-generation trait updates from CSV 
                             outputs to ensure consistency with theoretical evolutionary dynamics. Applied statistical 
                             analysis and clustering methods to categorize evolutionary regimes and long-term trait outcomes.
                         </p>
-                        <div class="project-screenshot">
-                            <img src="projects/coevolution-screenshot.png" alt="Coevolutionary Analysis Screenshot" onerror="this.style.display='none'">
-                            <p class="screenshot-caption">Trait dynamics visualization across generations</p>
-                        </div>
                         <div class="timeline-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Pandas</span>
@@ -196,29 +195,19 @@
                 </div>
 
                 <!-- Project: BYOW -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Build Your Own World (BYOW)</h3>
-                            <span class="timeline-date">Fall 2025</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="encounter.gif" alt="BYOW Gameplay Demo" onerror="this.src='projects/byow-screenshot.png'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">Fall 2025</span>
+                        <h3 class="project-title">Build Your Own World</h3>
                         <p class="project-description">
                             A procedurally generated 2D world exploration game built for CS 61B at UC Berkeley. 
                             Features include world generation using seed-based algorithms, interactive gameplay, 
                             save/load functionality, and multiple ambition features including a Pac-Man style maze 
                             with collectibles, power pellets, and gates.
                         </p>
-                        <div class="project-screenshot">
-                            <img src="projects/byow-screenshot.png" alt="BYOW Project Screenshot" onerror="this.style.display='none'">
-                            <p class="screenshot-caption">Procedurally generated maze with collectibles and power pellets</p>
-                        </div>
-                    <div class="project-screenshot">
-                        <img src="encounter.gif" alt="BYOW Gameplay Demo 1" onerror="this.style.display='none'">
-                    </div>
-                    <div class="project-screenshot">
-                        <img src="line-of-sight-good.gif" alt="BYOW Gameplay Demo 2" onerror="this.style.display='none'">
-                    </div>
                         <div class="timeline-tags">
                             <span class="tag">Java</span>
                             <span class="tag">Game Development</span>
@@ -229,22 +218,18 @@
                 </div>
 
                 <!-- Project: Diabetes Classifier -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Diabetes Classifier</h3>
-                            <span class="timeline-date">Apr. 2025 – June 2025</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier Screenshot" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">Apr. 2025 – June 2025</span>
+                        <h3 class="project-title">Diabetes Classifier</h3>
                         <p class="project-description">
                             Built a supervised ML pipeline achieving an F1-score of 0.84 (+14% over baseline) using 
                             KNN, Naive Bayes, and Extra Trees. Applied feature scaling, cross-validation, and 
                             hyperparameter tuning; visualized performance with Matplotlib.
                         </p>
-                        <div class="project-screenshot">
-                            <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier Screenshot" onerror="this.style.display='none'">
-                            <p class="screenshot-caption">Model performance metrics and visualizations</p>
-                        </div>
                         <div class="timeline-tags">
                             <span class="tag">Python</span>
                             <span class="tag">scikit-learn</span>
@@ -252,7 +237,7 @@
                             <span class="tag">Machine Learning</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/A-Sanil" target="_blank" class="project-link">GitHub Repo</a>
+                            <a href="https://github.com/A-Sanil" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Source</a>
                         </div>
                     </div>
                 </div>
@@ -260,16 +245,16 @@
 
             <!-- Medical Projects -->
             <h3 class="subsection-title" style="margin-top: 4rem;">Medical Projects</h3>
-            <div class="timeline">
+            <div class="projects-grid">
 
                 <!-- Project: ProteinLLMV1 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">ProteinLLMV1 — Protein Language Model</h3>
-                            <span class="timeline-date">Dec. 2025 – Present</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image" style="background: #111; padding: 2rem;">
+                        <img src="projects/blosum62-matrix.svg" alt="BLOSUM62 Substitution Matrix" style="object-fit: contain;">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">Dec. 2025 – Present</span>
+                        <h3 class="project-title">ProteinLLMV1</h3>
                         <p class="project-description">
                             Building a protein language model (LLM) from scratch based on the <strong>nanoGPT</strong> 
                             architecture to predict protein function, enzymatic activity, and subcellular localization.
@@ -277,19 +262,6 @@
                             <strong>ESMFold</strong> for 3D structure prediction, served through a full-stack 
                             web application (FastAPI backend + React/Next.js frontend).
                         </p>
-
-                        <p class="project-description" style="margin-top: 0.8rem;">
-                            <strong>BLOSUM62 Substitution Matrix:</strong> A log-odds scoring matrix where 
-                            each cell <em>BLOSUM[i][j]</em> encodes the evolutionary likelihood of amino acid 
-                            <em>i</em> being substituted by <em>j</em>. Positive scores represent biologically 
-                            favored substitutions (e.g., Leu↔Ile); negative scores penalize dissimilar swaps. 
-                            It informs the model's embedding initialization and similarity-aware loss functions.
-                        </p>
-
-                        <div class="project-screenshot" style="background:#1a1a2e; padding:1rem; border-radius:8px; margin-top:1rem;">
-                            <img src="projects/blosum62-matrix.svg" alt="BLOSUM62 Substitution Matrix" style="width:100%; max-width:600px; display:block; margin:0 auto;">
-                            <p class="screenshot-caption" style="color:#a8d8ea;">BLOSUM62 substitution matrix — blue = conserved substitutions, red = penalized substitutions</p>
-                        </div>
 
                         <p class="project-description" style="margin-top: 0.8rem;">
                             <strong>ESMFold Integration:</strong> ESMFold (Meta AI) predicts 3D protein 
@@ -320,42 +292,24 @@
                             <span class="tag">Protein ML</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/A-Sanil/ProteinLLMV1" target="_blank" class="project-link">GitHub</a>
+                            <a href="https://github.com/A-Sanil/ProteinLLMV1" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Source</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">BMRC Logistics - Medical Inventory Management System</h3>
-                            <span class="timeline-date">November 2025 - Present</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics Screenshot" onerror="this.src='image.png'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-date">November 2025 - Present</span>
+                        <h3 class="project-title">BMRC Logistics System</h3>
                         <p class="project-description">
                             Engineered a scalable full-stack inventory management system for Berkeley Medical Reserve Corps,
                             implementing real-time stock tracking, expiration validation logic, and secure authentication workflows.
                             Designed RESTful backend services and an interactive dashboard with dynamic search, CRUD operations,
                             and automated alerting to improve data accuracy and operational efficiency.
                         </p>
-                        <p class="project-description" style="margin-top: 1rem;">
-                            <strong>Backend:</strong> Built with modern server-side technologies to handle inventory data, 
-                            user authentication, and real-time updates. The backend manages the database operations for 
-                            tracking supplies, medicines, and their expiration dates.
-                        </p>
-                        <p class="project-description" style="margin-top: 0.5rem;">
-                            <strong>Frontend:</strong> Responsive user interface that allows BMRC staff to easily view, 
-                            search, and update inventory records. Features include visual indicators for stock levels 
-                            and expiration warnings.
-                        </p>
-                        <div class="project-screenshot">
-                            <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics Screenshot" onerror="this.parentElement.style.display='none'">
-                            <p class="screenshot-caption">Medical inventory management dashboard</p>
-                        </div>
-                        <div class="project-screenshot">
-                            <img src="image.png" alt="BMRC Master Inventory" onerror="this.parentElement.style.display='none'">
-                            <p class="screenshot-caption">Master Inventory Interface</p>
-                        </div>
                         <div class="timeline-tags">
                             <span class="tag">Web Application</span>
                             <span class="tag">Inventory Management</span>
@@ -364,11 +318,10 @@
                             <span class="tag">Full Stack</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://bmrc-logistics.web.app/" target="_blank" class="project-link">Live Demo</a>
-            
+                            <a href="https://bmrc-logistics.web.app/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
                         </div>
                         <p class="project-description" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                            <strong>Demo Login:</strong> Test@gmail.com / test123
+                            <em>Demo Login: Test@gmail.com / test123</em>
                         </p>
                     </div>
                 </div>
@@ -474,15 +427,15 @@
                 <p class="contact-description">Feel free to reach out if you'd like to collaborate or have any questions!</p>
                 <div class="contact-links">
                     <a href="mailto:Sanilaadityan@gmail.com" class="contact-link">
-                        <span class="contact-icon">✉</span>
+                        <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
                         <span>Sanilaadityan@gmail.com</span>
                     </a>
                     <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="contact-link">
-                        <span class="contact-icon">💼</span>
+                        <span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
                         <span>LinkedIn</span>
                     </a>
                     <a href="https://github.com/A-Sanil" target="_blank" class="contact-link">
-                        <span class="contact-icon">🔗</span>
+                        <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
                         <span>GitHub</span>
                     </a>
                 </div>
