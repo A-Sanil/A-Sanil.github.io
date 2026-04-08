@@ -50,3 +50,41 @@ navLinks.forEach(anchor => {
         showSection(targetId);
     });
 });
+
+// Typing Animation System
+const textArray = ["SWE @ Martin Lab", "Former IGN Intern"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+    const typewriterElement = document.getElementById('typewriter');
+    if (!typewriterElement) return;
+
+    const currentText = textArray[textIndex];
+
+    if (isDeleting) {
+        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2500; // Pause after typing fully
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % textArray.length;
+        typeSpeed = 500; // Pause before typing the next word
+    }
+
+    setTimeout(type, typeSpeed);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (textArray.length) setTimeout(type, 500);
+});
