@@ -58,3 +58,25 @@ function type() {
 
 // Start typing animation
 if (textArray.length) setTimeout(type, 500);
+
+// Sidebar Interaction
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+    // Use a try-catch block in case CSS variables are not supported or defined
+    let sidebarWidth = 250; // Fallback width
+    try {
+        // Read the width from the CSS variable for consistency
+        sidebarWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width'), 10);
+    } catch (e) {
+        console.error("Could not read --sidebar-width CSS variable.", e);
+    }
+    const triggerArea = 30; // px from left edge to trigger the sidebar
+
+    document.addEventListener('mousemove', (e) => {
+        if (e.clientX <= triggerArea || (e.clientX <= sidebarWidth && navbar.classList.contains('visible'))) {
+            navbar.classList.add('visible');
+        } else {
+            navbar.classList.remove('visible');
+        }
+    });
+}
