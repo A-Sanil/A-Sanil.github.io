@@ -1,26 +1,52 @@
-// Scroll Navigation Highlighting
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
+// Navigation Overlay Logic
+const menuToggle = document.getElementById('menu-toggle');
+const navOverlay = document.getElementById('nav-overlay');
+const overlayLinks = document.querySelectorAll('.overlay-link');
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
+if (menuToggle && navOverlay) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        
+        // Prevent body scrolling when menu is open
+        if (navOverlay.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
         }
     });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+
+    // Close menu when clicking a link
+    overlayLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+}
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Optional: Stop observing once animated
         }
     });
+}, observerOptions);
+
+// Observe all elements with .animate-on-scroll
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => observer.observe(el));
 });
-
-// Trigger scroll event on load to highlight correct link
-window.dispatchEvent(new Event('scroll'));
 
 // Typing Animation System
 const textArray = ["SWE @ Martin Lab", "Former IGN Intern"];
@@ -58,20 +84,3 @@ function type() {
 
 // Start typing animation
 if (textArray.length) setTimeout(type, 500);
-
-// Sidebar Interaction
-const navbar = document.querySelector('.navbar');
-if (navbar) {
-    const triggerArea = 40; // px from left edge to trigger the sidebar
-
-    document.addEventListener('mousemove', (e) => {
-        // Show sidebar if mouse is near the left edge
-        if (e.clientX <= triggerArea) {
-            navbar.classList.add('visible');
-        } 
-        // Hide sidebar if mouse moves past the sidebar's width (plus a buffer)
-        else if (e.clientX > navbar.offsetWidth + 10) {
-            navbar.classList.remove('visible');
-        }
-    });
-}

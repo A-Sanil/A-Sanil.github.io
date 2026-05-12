@@ -7,31 +7,41 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icon Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="noise-overlay"></div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div id="nav-overlay" class="nav-overlay">
+        <div class="nav-overlay-content">
+            <a href="#home" class="overlay-link">Home</a>
+            <a href="#education" class="overlay-link">Education</a>
+            <a href="#experience" class="overlay-link">Experience</a>
+            <a href="#projects-header" class="overlay-link">Projects</a>
+            <a href="#contact" class="overlay-link">Contact</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">Aaditya.</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="section home-section">
+    <section id="home" class="home-section bento-item">
         <div class="container home-container">
             <div class="home-content">
                 <h1 class="home-title">Aaditya Sanil</h1>
-                <p class="home-subtitle"><span style="color: var(--accent-color); font-weight: bold;">&gt;</span> <span id="typewriter"></span><span class="cursor"></span></p>
+                <p class="home-subtitle"><span id="typewriter"></span><span class="cursor"></span></p>
                 <p class="home-description">
                     CS @ Berkeley. Passionate about machine learning, software engineering, and building robust, scalable systems.
                 </p>
@@ -45,380 +55,180 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section education-section">
-        <div class="container">
+    <!-- Content Sections inside a Bento Wrapper -->
+    <div class="bento-wrapper container">
+        <!-- Education Section -->
+        <section id="education" class="bento-card education-card animate-on-scroll">
             <h2 class="section-title">Education</h2>
             <div class="education-content">
-                <div class="education-item">
-                    <h3 class="education-degree">B.A. Computer Science</h3>
-                    <p class="education-school">University of California, Berkeley</p>
-                    <p class="education-location">Berkeley, CA</p>
-                    <p class="education-date">Expected Graduation: May 2027</p>
-                    <p class="education-gpa" style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>GPA:</strong> 3.70</p>
-        
-                    <div class="education-coursework">
-                        <h4>Coursework</h4>
-                        <div class="coursework-tags">
-                            <span class="tag">Data Structures</span>
-                            <span class="tag">Principles of Data Science</span>
-                            <span class="tag">Optimization Models</span>
-                            <span class="tag">Computer Architecture</span>
-                            <span class="tag">Efficient Algorithms</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
-                    </div>
+                <h3 class="education-degree">B.A. Computer Science</h3>
+                <p class="education-school">University of California, Berkeley</p>
+                <p class="education-date">Expected May 2028 • Berkeley, CA</p>
+                <p class="education-gpa">GPA: 3.70</p>
+                <div class="coursework-tags" style="margin-top: 1rem;">
+                    <span class="tag">Data Structures</span>
+                    <span class="tag">Principles of Data Science</span>
+                    <span class="tag">Optimization Models</span>
+                    <span class="tag">Computer Architecture</span>
+                    <span class="tag">Efficient Algorithms</span>
+                    <span class="tag">Machine Learning</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section experience-section">
-        <div class="container">
+        <!-- Experience Section -->
+        <section id="experience" class="bento-card experience-card animate-on-scroll">
             <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <!-- Experience Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Undergraduate ML Researcher</h3>
-                            <span class="timeline-company">Martin Computational Speciation Lab</span>
-                            <span class="timeline-date">June 2025 – Present</span>
-                        </div>
-                        <p class="timeline-location">Berkeley, CA</p>
-                        <ul class="timeline-description">
-                            <li>Reduced simulation latency by 83% (60 min to 10 min) by refactoring the Julia backend into a scalable K-buffer architecture for high-throughput distributed execution.</li>
-                            <li>Architected system capacity for 100k+ concurrent entities, implementing multi-variable biological parameters to simulate complex population dynamics.</li>
-                            <li>Automated statistical telemetry pipelines with Pandas, exporting 26 metrics per run for regression testing and experiment analysis.</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Julia</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">React</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Docker</span>
-                        </div>
+            <div class="experience-list">
+                
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Undergraduate ML Researcher</h3>
+                        <span class="exp-company">Martin Computational Speciation Lab</span>
                     </div>
+                    <p class="exp-meta">Jun 2025 – Present • Berkeley, CA</p>
+                    <p class="exp-desc">
+                        Reduced simulation latency by 83% (60m to 10m) by refactoring the Julia backend for parallel HPC SAVIO cluster. Architected a Distributed Asynchronous Population Engine to generate and evaluate 100k+ concurrent entities across multiple nodes for high-fidelity trait evolution. Engineered an automated telemetry pipeline to parse and filter 26 performance metrics per run, enabling rigorous regression testing and experiment analysis.
+                    </p>
                 </div>
 
-                <!-- Experience Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Data Scientist Intern</h3>
-                            <span class="timeline-company">Imagine Games Network (IGN)</span>
-                            <span class="timeline-date">Aug. 2025 – Dec. 2025</span>
-                        </div>
-                        <p class="timeline-location">Los Angeles, CA</p>
-                        <ul class="timeline-description">
-                            <li>Optimized data quality by 15% via automated noise-reduction pipelines in PyTorch, reducing end-to-end model training cycles to 4 hours.</li>
-                            <li>Improved model precision from 93% to 96% by implementing Lasso regression (L1) for feature selection across 20k+ sparse user-intent signals.</li>
-                            <li>Enhanced targeted segmentation of high-volume behavioral data, directly supporting segmentation systems used across platforms serving millions of monthly users.</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Data Analysis</span>
-                            <span class="tag">Statistics</span>
-                        </div>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Software Engineer Intern (Contract)</h3>
+                        <span class="exp-company">Imagine Games Network (IGN)</span>
                     </div>
+                    <p class="exp-meta">Aug 2025 – Dec 2025 • Los Angeles, CA</p>
+                    <p class="exp-desc">
+                        Engineered feature selection microservices to process 20k+ sparse signals, utilizing Lasso Regression to optimize input layers for cognitive AI models. Optimized heap utilization and ingestion workflows using Polars to enable stable, high-performance processing of 500k+ user records. Architected FastAPI microservices with real-time telemetry and GitHub Actions CI/CD to automate audience segment activation for a production-ready launch of Imagine AI.
+                    </p>
                 </div>
 
-                <!-- Experience Item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Technology Strategy Consultant (Contract)</h3>
-                            <span class="timeline-company">DreamWorks Animation</span>
-                            <span class="timeline-date">Feb. 2025 – June 2025</span>
-                        </div>
-                        <p class="timeline-location">Berkeley, CA</p>
-                        <ul class="timeline-description">
-                            <li>Modernized rendering pipelines by designing technical roadmaps for GenAI integration.</li>
-                            <li>Conducted performance trade-off analysis for LLM and diffusion architectures, optimizing for low-latency inference within real-time production loops.</li>
-                            <li>Influenced scalability decisions by evaluating model throughput versus artist feedback speed, improving workflow efficiency for production-level animation.</li>
-                        </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Research</span>
-                            <span class="tag">Strategy</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Software Engineer (Contract)</h3>
+                        <span class="exp-company">DreamWorks Animation</span>
                     </div>
+                    <p class="exp-meta">Feb 2025 – May 2025 • Glendale, CA</p>
+                    <p class="exp-desc">
+                        Refactored MoonRay MCRT rendering kernels to optimize production pipeline runtimes via memory alignment. Engineered Python automation scripts to bridge manual storyboarding with LLM backends, accelerating pre-production cycles. Developed inference latency and memory benchmarks to evaluate the technical feasibility of AI integration across studio pipelines.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Sections (Bento Grid elements) -->
+        <section id="projects-header" class="bento-card title-card animate-on-scroll">
+             <h2 class="section-title" style="margin:0;">Projects</h2>
+        </section>
+
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'" class="project-img">
+            <div class="project-info">
+                <h3>Provably Robust Deep Classifiers</h3>
+                <p>Trained a provably robust neural network by minimizing a worst-case adversarial loss upper bound, improving certified robustness over standard cross-entropy training.</p>
+                <div class="project-tags">
+                    <span class="tag">PyTorch</span><span class="tag">Convex Optimization</span><span class="tag">CVXPY</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            
-            <div class="projects-grid">
-                <!-- Project: Adversarial Probability -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">January 2026 - Present</span>
-                        <h3 class="project-title">Provably Robust Deep Classifiers</h3>
-                        <p class="project-description">
-                            Trained a provably robust neural network by minimizing a worst-case adversarial loss upper bound, improving certified robustness over standard cross-entropy training.
-                        </p>
-                        <ul class="project-bullet-points">
-                            <li>Implemented the Fast Gradient Sign Method (FGSM) to generate adversarial examples on MNIST, demonstrating classifier vulnerability to ℓ∞-bounded input perturbations.</li>
-                            <li>Derived convex relaxations of ReLU constraints using Lagrangian duality and Fenchel conjugates to construct a dual robustness certificate network.</li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">NumPy</span>
-                            <span class="tag">Matplotlib</span>
-                            <span class="tag">CVXPY</span>
-                            <span class="tag">SciPy</span>
-                            <span class="tag">Convex Optimization</span>
-                            <span class="tag">Adversarial ML</span>
-                            <span class="tag">Robust Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Coevolutionary Trait Dynamics Analyzer -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/coevolution-screenshot.png" alt="Coevolutionary Analysis Screenshot" onerror="this.style.display='none'">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">Oct. 2025 – Present</span>
-                        <h3 class="project-title">Coevolutionary Trait Dynamics Analyzer</h3>
-                        <p class="project-description">
-                            Analyzed coevolutionary simulations to study the emergence, stability, and divergence 
-                            of traits across successive life cycles. Validated per-generation trait updates from CSV 
-                            outputs to ensure consistency with theoretical evolutionary dynamics. Applied statistical 
-                            analysis and clustering methods to categorize evolutionary regimes and long-term trait outcomes.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">scikit-learn</span>
-                            <span class="tag">Matplotlib</span>
-                            <span class="tag">Data Analysis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: BYOW -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="encounter.gif" alt="BYOW Gameplay Demo" onerror="this.src='projects/byow-screenshot.png'">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">Fall 2025</span>
-                        <h3 class="project-title">Build Your Own World</h3>
-                        <p class="project-description">
-                            A procedurally generated 2D world exploration game built for CS 61B at UC Berkeley. 
-                            Features include world generation using seed-based algorithms, interactive gameplay, 
-                            save/load functionality, and multiple ambition features including a Pac-Man style maze 
-                            with collectibles, power pellets, and gates.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Game Development</span>
-                            <span class="tag">Procedural Generation</span>
-                            <span class="tag">Data Structures</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Diabetes Classifier -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier Screenshot" onerror="this.style.display='none'">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">Apr. 2025 – June 2025</span>
-                        <h3 class="project-title">Diabetes Classifier</h3>
-                        <p class="project-description">
-                            Built a supervised ML pipeline achieving an F1-score of 0.84 (+14% over baseline) using 
-                            KNN, Naive Bayes, and Extra Trees. Applied feature scaling, cross-validation, and 
-                            hyperparameter tuning; visualized performance with Matplotlib.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">scikit-learn</span>
-                            <span class="tag">Matplotlib</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/A-Sanil" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: ProteinLLMV1 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: #111; padding: 2rem;">
-                        <img src="projects/blosum62-matrix.svg" alt="BLOSUM62 Substitution Matrix" style="object-fit: contain;">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">Dec. 2025 – Present</span>
-                        <h3 class="project-title">ProteinLLMV1</h3>
-                        
-                        <ul class="project-bullet-points">
-                            <li>Engineered a custom protein language model utilizing the nanoGPT architecture (12 layers, 12 attention heads), pre-trained via Masked Language Modeling (MLM) on UniProt sequences.</li>
-                            <li>Developed a full-stack web application integrating ESMFold to dynamically generate and visualize atomic-level 3D protein structures with confidence scoring via a React frontend and FastAPI backend.</li>
-                        </ul>
-
-                        <div class="project-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Transformers</span>
-                            <span class="tag">nanoGPT</span>
-                            <span class="tag">ESMFold</span>
-                            <span class="tag">BLOSUM62</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">React / Next.js</span>
-                            <span class="tag">Biopython</span>
-                            <span class="tag">UniProt</span>
-                            <span class="tag">Protein ML</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/A-Sanil/ProteinLLMV1" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics Screenshot" onerror="this.src='image.png'">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-date">November 2025 - Present</span>
-                        <h3 class="project-title">BMRC Logistics System</h3>
-                        <ul class="project-bullet-points">
-                            <li>Engineered a scalable inventory system utilizing relational database design, structured queries, and backend validation logic to ensure operational data integrity.</li>
-                            <li>Designed RESTful services and implemented CRUD operations to support real-time tracking, dynamic search filtering, and operational reporting for end-users.</li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="tag">Web Application</span>
-                            <span class="tag">Inventory Management</span>
-                            <span class="tag">Healthcare</span>
-                            <span class="tag">Database</span>
-                            <span class="tag">Full Stack</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://bmrc-logistics.web.app/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-                        </div>
-                        <p class="project-description" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                            <em>Demo Login: Test123@gmail.com / test123</em>
-                        </p>
-                    </div>
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="projects/coevolution-screenshot.png" alt="Coevolution" onerror="this.style.display='none'" class="project-img">
+            <div class="project-info">
+                <h3>Coevolutionary Trait Dynamics Analyzer</h3>
+                <p>Analyzed coevolutionary simulations to study the emergence, stability, and divergence of traits across successive life cycles.</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Technical Skills Section -->
-    <section id="skills" class="section skills-section">
-        <div class="container">
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="encounter.gif" alt="BYOW" onerror="this.style.display='none'" class="project-img">
+            <div class="project-info">
+                <h3>Build Your Own World</h3>
+                <p>A procedurally generated 2D world exploration game built for CS 61B at UC Berkeley. Features include world generation using seed-based algorithms and interactive gameplay.</p>
+                <div class="project-tags">
+                    <span class="tag">Java</span><span class="tag">Procedural Gen</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier" onerror="this.style.display='none'" class="project-img">
+            <div class="project-info">
+                <h3>Diabetes Classifier</h3>
+                <p>Built a supervised ML pipeline achieving an F1-score of 0.84 (+14% over baseline) using KNN, Naive Bayes, and Extra Trees.</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span><span class="tag">scikit-learn</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="projects/blosum62-matrix.svg" alt="ProteinLLMV1" onerror="this.style.display='none'" class="project-img" style="background:#fff; object-fit:contain; padding:1rem;">
+            <div class="project-info">
+                <h3>ProteinLLMV1</h3>
+                <p>Engineered a custom protein language model utilizing nanoGPT architecture. Developed full-stack web application integrating ESMFold to dynamically generate 3D protein structures.</p>
+                <div class="project-tags">
+                    <span class="tag">PyTorch</span><span class="tag">nanoGPT</span><span class="tag">React</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card bento-card animate-on-scroll">
+            <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics" onerror="this.style.display='none'" class="project-img">
+            <div class="project-info">
+                <h3>BMRC Logistics System</h3>
+                <p>Engineered a scalable inventory system utilizing relational database design, structured queries, and backend validation logic. Designed RESTful services for tracking and dynamic search.</p>
+                <div class="project-tags">
+                    <span class="tag">Full Stack</span><span class="tag">Database</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <section id="skills" class="bento-card skills-card animate-on-scroll">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Languages</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">Julia</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">R</span>
-                        <span class="tag">C</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Scheme</span>
+                    <div class="skill-tags" style="margin-top: 0.5rem;">
+                        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Julia</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks & APIs</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">JUnit</span>
-                        <span class="tag">WordPress</span>
-                        <span class="tag">Material-UI</span>
+                    <h3>Frameworks</h3>
+                    <div class="skill-tags" style="margin-top: 0.5rem;">
+                        <span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Node.js</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Data & ML</h3>
-                    <div class="skill-tags">
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">scikit-learn</span>
-                        <span class="tag">pandas</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">joblib</span>
-                        <span class="tag">Polars</span>
-                        <span class="tag">DuckDB</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">TravisCI</span>
-                        <span class="tag">Google Cloud Platform</span>
-                        <span class="tag">Jupyter</span>
-                        <span class="tag">VS Code</span>
-                        <span class="tag">PyCharm</span>
-                        <span class="tag">IntelliJ</span>
+                    <div class="skill-tags" style="margin-top: 0.5rem;">
+                        <span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">NumPy</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="bento-card contact-card animate-on-scroll">
             <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p class="contact-description">Feel free to reach out if you'd like to collaborate or have any questions!</p>
-                <div class="contact-links">
-                    <a href="mailto:sanilaadityan@gmail.com" class="contact-link">
-                        <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
-                        <span>sanilaadityan@gmail.com</span>
-                    </a>
-                    <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="contact-link">
-                        <span class="contact-icon"><i class="fa-brands fa-linkedin"></i></span>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/A-Sanil" target="_blank" class="contact-link">
-                        <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="./Sanil%20A%20Resume.pdf" target="_blank" class="contact-link" download>
-                        <span class="contact-icon">📄</span>
-                        <span>Resume</span>
-                    </a>
-                </div>
+            <p>Feel free to reach out if you'd like to collaborate or have any questions!</p>
+            <div class="contact-links" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="mailto:sanilaadityan@gmail.com" class="primary-button"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="icon-button"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/A-Sanil" target="_blank" class="icon-button"><i class="fa-brands fa-github"></i></a>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Aaditya Sanil. All rights reserved.</p>
+            <p>&copy; 2026 Aaditya Sanil. All rights reserved.</p>
         </div>
     </footer>
 
