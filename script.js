@@ -1,86 +1,73 @@
-// Navigation Overlay Logic
-const menuToggle = document.getElementById('menu-toggle');
-const navOverlay = document.getElementById('nav-overlay');
-const overlayLinks = document.querySelectorAll('.overlay-link');
-
-if (menuToggle && navOverlay) {
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navOverlay.classList.toggle('active');
-        
-        // Prevent body scrolling when menu is open
-        if (navOverlay.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Close menu when clicking a link
-    overlayLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-    });
-}
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Optional: Stop observing once animated
-        }
-    });
-}, observerOptions);
-
-// Observe all elements with .animate-on-scroll
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(el => observer.observe(el));
-});
-
-// Typing Animation System
-const textArray = ["SWE @ Martin Lab", "Former IGN Intern"];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navAnchors = navLinks ? Array.from(navLinks.querySelectorAll('a')) : [];
+    const revealElements = Array.from(document.querySelectorAll('.reveal'));
     const typewriterElement = document.getElementById('typewriter');
-    if (!typewriterElement) return;
+    const typewriterStrings = [
+        'Machine Learning Engineer at Lawrence Berkeley National Laboratory',
+        'Former SWE Intern at Imagine Games Network'
+    ];
 
-    const currentText = textArray[textIndex];
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
 
-    if (isDeleting) {
-        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
+        navAnchors.forEach((anchor) => {
+            anchor.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
     }
 
-    let typeSpeed = isDeleting ? 40 : 80;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
 
-    if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2500; // Pause after typing fully
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % textArray.length;
-        typeSpeed = 500; // Pause before typing the next word
+    revealElements.forEach((element) => observer.observe(element));
+
+    if (typewriterElement && typewriterStrings.length) {
+        let stringIndex = 0;
+        let characterIndex = typewriterStrings[0].length;
+        let isDeleting = true;
+
+        typewriterElement.textContent = typewriterStrings[0];
+
+        const typeSpeed = () => (isDeleting ? 38 : 65);
+
+        const loop = () => {
+            const currentString = typewriterStrings[stringIndex];
+
+            if (isDeleting) {
+                characterIndex -= 1;
+                typewriterElement.textContent = currentString.slice(0, characterIndex);
+            } else {
+                characterIndex += 1;
+                typewriterElement.textContent = currentString.slice(0, characterIndex);
+            }
+
+            let delay = typeSpeed();
+
+            if (!isDeleting && characterIndex === currentString.length) {
+                delay = 1600;
+                isDeleting = true;
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                stringIndex = (stringIndex + 1) % typewriterStrings.length;
+                delay = 350;
+            }
+
+            window.setTimeout(loop, delay);
+        };
+
+        window.setTimeout(loop, 1400);
     }
-
-    setTimeout(type, typeSpeed);
-}
-
-// Start typing animation
-if (textArray.length) setTimeout(type, 500);
+});

@@ -4,233 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aaditya Sanil | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="page-bg"></div>
     <div class="noise-overlay"></div>
 
-    <!-- Full Screen Menu Overlay -->
-    <div id="nav-overlay" class="nav-overlay">
-        <div class="nav-overlay-content">
-            <a href="#home" class="overlay-link">Home</a>
-            <a href="#education" class="overlay-link">Education</a>
-            <a href="#experience" class="overlay-link">Experience</a>
-            <a href="#projects-header" class="overlay-link">Projects</a>
-            <a href="#contact" class="overlay-link">Contact</a>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">Aaditya.</a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+    <header class="topbar">
+        <div class="topbar-inner container">
+            <a href="#home" class="brand">Aaditya Profilo</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="home-section bento-item">
-        <div class="container home-container">
-            <div class="home-content">
-                <h1 class="home-title">Aaditya Sanil</h1>
-                <p class="home-subtitle"><span id="typewriter"></span><span class="cursor"></span></p>
-                <p class="home-description">
-                    CS @ Berkeley. Passionate about machine learning, software engineering, and building robust, scalable systems.
-                </p>
-                <div class="home-links">
-                    <a href="SWE Resume AS.pdf" target="_blank" class="primary-button"><i class="fa-solid fa-file-pdf"></i> Resume</a>
-                    <a href="https://github.com/A-Sanil" target="_blank" class="icon-button" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="icon-button" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="mailto:sanilaadityan@gmail.com" class="icon-button" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <main>
+        <section id="home" class="hero section">
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <span class="eyebrow">CS @ Berkeley • ML Engineer • Builder</span>
+                    <h1>Aaditya Sanil</h1>
+                    <p class="hero-lead"><span id="typewriter"></span><span class="cursor" aria-hidden="true"></span></p>
+                    <div class="hero-actions">
+                        <a href="mailto:asanil@berkeley.edu" class="button primary"><i class="fa-solid fa-envelope"></i> Email</a>
+                        <a href="https://discord.com/users/acelinas" target="_blank" rel="noreferrer" class="button"><i class="fa-brands fa-discord"></i> Discord</a>
+                        <a href="https://github.com/A-Sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Content Sections inside a Bento Wrapper -->
-    <div class="bento-wrapper container">
-        <!-- Education Section -->
-        <section id="education" class="bento-card education-card animate-on-scroll">
-            <h2 class="section-title">Education</h2>
-            <div class="education-content">
-                <h3 class="education-degree">B.A. Computer Science</h3>
-                <p class="education-school">University of California, Berkeley</p>
-                <p class="education-date">Expected May 2028 • Berkeley, CA</p>
-                <p class="education-gpa">GPA: 3.70</p>
-                <div class="coursework-tags" style="margin-top: 1rem;">
-                    <span class="tag">Data Structures</span>
-                    <span class="tag">Principles of Data Science</span>
-                    <span class="tag">Optimization Models</span>
-                    <span class="tag">Computer Architecture</span>
-                    <span class="tag">Efficient Algorithms</span>
-                    <span class="tag">Machine Learning</span>
+                <div class="hero-card reveal">
+                    <div class="card-shell as-shell" aria-label="Aaditya Sanil initials badge">
+                        <div class="as-badge">AS</div>
+                    </div>
+                    <div class="floating-pill">Machine learning + infrastructure</div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="bento-card experience-card animate-on-scroll">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-list">
-                
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Undergraduate ML Researcher</h3>
-                        <span class="exp-company">Martin Computational Speciation Lab</span>
-                    </div>
-                    <p class="exp-meta">Jun 2025 – Present • Berkeley, CA</p>
-                    <p class="exp-desc">
-                        Reduced simulation latency by 83% (60m to 10m) by refactoring the Julia backend for parallel HPC SAVIO cluster. Architected a Distributed Asynchronous Population Engine to generate and evaluate 100k+ concurrent entities across multiple nodes for high-fidelity trait evolution. Engineered an automated telemetry pipeline to parse and filter 26 performance metrics per run, enabling rigorous regression testing and experiment analysis.
-                    </p>
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-tag">Skills</span>
+                    <h2>Tools I reach for most.</h2>
                 </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Software Engineer Intern (Contract)</h3>
-                        <span class="exp-company">Imagine Games Network (IGN)</span>
-                    </div>
-                    <p class="exp-meta">Aug 2025 – Dec 2025 • Los Angeles, CA</p>
-                    <p class="exp-desc">
-                        Engineered feature selection microservices to process 20k+ sparse signals, utilizing Lasso Regression to optimize input layers for cognitive AI models. Optimized heap utilization and ingestion workflows using Polars to enable stable, high-performance processing of 500k+ user records. Architected FastAPI microservices with real-time telemetry and GitHub Actions CI/CD to automate audience segment activation for a production-ready launch of Imagine AI.
-                    </p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Software Engineer (Contract)</h3>
-                        <span class="exp-company">DreamWorks Animation</span>
-                    </div>
-                    <p class="exp-meta">Feb 2025 – May 2025 • Glendale, CA</p>
-                    <p class="exp-desc">
-                        Refactored MoonRay MCRT rendering kernels to optimize production pipeline runtimes via memory alignment. Engineered Python automation scripts to bridge manual storyboarding with LLM backends, accelerating pre-production cycles. Developed inference latency and memory benchmarks to evaluate the technical feasibility of AI integration across studio pipelines.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Projects Sections (Bento Grid elements) -->
-        <section id="projects-header" class="bento-card title-card animate-on-scroll">
-             <h2 class="section-title" style="margin:0;">Projects</h2>
-        </section>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'" class="project-img">
-            <div class="project-info">
-                <h3>Provably Robust Deep Classifiers</h3>
-                <p>Trained a provably robust neural network by minimizing a worst-case adversarial loss upper bound, improving certified robustness over standard cross-entropy training.</p>
-                <div class="project-tags">
-                    <span class="tag">PyTorch</span><span class="tag">Convex Optimization</span><span class="tag">CVXPY</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="projects/coevolution-screenshot.png" alt="Coevolution" onerror="this.style.display='none'" class="project-img">
-            <div class="project-info">
-                <h3>Coevolutionary Trait Dynamics Analyzer</h3>
-                <p>Analyzed coevolutionary simulations to study the emergence, stability, and divergence of traits across successive life cycles.</p>
-                <div class="project-tags">
-                    <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">scikit-learn</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="encounter.gif" alt="BYOW" onerror="this.style.display='none'" class="project-img">
-            <div class="project-info">
-                <h3>Build Your Own World</h3>
-                <p>A procedurally generated 2D world exploration game built for CS 61B at UC Berkeley. Features include world generation using seed-based algorithms and interactive gameplay.</p>
-                <div class="project-tags">
-                    <span class="tag">Java</span><span class="tag">Procedural Gen</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier" onerror="this.style.display='none'" class="project-img">
-            <div class="project-info">
-                <h3>Diabetes Classifier</h3>
-                <p>Built a supervised ML pipeline achieving an F1-score of 0.84 (+14% over baseline) using KNN, Naive Bayes, and Extra Trees.</p>
-                <div class="project-tags">
-                    <span class="tag">Python</span><span class="tag">scikit-learn</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="projects/blosum62-matrix.svg" alt="ProteinLLMV1" onerror="this.style.display='none'" class="project-img" style="background:#fff; object-fit:contain; padding:1rem;">
-            <div class="project-info">
-                <h3>ProteinLLMV1</h3>
-                <p>Engineered a custom protein language model utilizing nanoGPT architecture. Developed full-stack web application integrating ESMFold to dynamically generate 3D protein structures.</p>
-                <div class="project-tags">
-                    <span class="tag">PyTorch</span><span class="tag">nanoGPT</span><span class="tag">React</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card bento-card animate-on-scroll">
-            <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics" onerror="this.style.display='none'" class="project-img">
-            <div class="project-info">
-                <h3>BMRC Logistics System</h3>
-                <p>Engineered a scalable inventory system utilizing relational database design, structured queries, and backend validation logic. Designed RESTful services for tracking and dynamic search.</p>
-                <div class="project-tags">
-                    <span class="tag">Full Stack</span><span class="tag">Database</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Skills Section -->
-        <section id="skills" class="bento-card skills-card animate-on-scroll">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-tags" style="margin-top: 0.5rem;">
-                        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Julia</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">C</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks</h3>
-                    <div class="skill-tags" style="margin-top: 0.5rem;">
-                        <span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Node.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data & ML</h3>
-                    <div class="skill-tags" style="margin-top: 0.5rem;">
-                        <span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">NumPy</span>
-                    </div>
+                <div class="skills-grid">
+                    <div class="skill-tile reveal"><span>HTML</span></div>
+                    <div class="skill-tile reveal"><span>CSS</span></div>
+                    <div class="skill-tile reveal"><span>JavaScript</span></div>
+                    <div class="skill-tile reveal"><span>C</span></div>
+                    <div class="skill-tile reveal"><span>C++</span></div>
+                    <div class="skill-tile reveal"><span>Python</span></div>
+                    <div class="skill-tile reveal"><span>PyTorch</span></div>
+                    <div class="skill-tile reveal"><span>FastAPI</span></div>
+                    <div class="skill-tile reveal"><span>SQL</span></div>
+                    <div class="skill-tile reveal"><span>Docker</span></div>
                 </div>
             </div>
         </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="bento-card contact-card animate-on-scroll">
-            <h2 class="section-title">Contact</h2>
-            <p>Feel free to reach out if you'd like to collaborate or have any questions!</p>
-            <div class="contact-links" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="mailto:sanilaadityan@gmail.com" class="primary-button"><i class="fa-solid fa-envelope"></i> Email Me</a>
-                <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" class="icon-button"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/A-Sanil" target="_blank" class="icon-button"><i class="fa-brands fa-github"></i></a>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-tag">Work Experience</span>
+                    <h2>Relevant roles.</h2>
+                </div>
+                <div class="experience-list">
+                    <article class="experience-card reveal featured">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Machine Learning Engineer</h3>
+                                <p>Lawrence Berkeley National Laboratory</p>
+                            </div>
+                            <span>Featured</span>
+                        </div>
+                        <p class="experience-summary">Machine learning work focused on scientific workflows, research tooling, and infrastructure that keeps experiments moving cleanly.</p>
+                    </article>
+
+                    <article class="experience-card reveal">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Undergraduate ML Researcher</h3>
+                                <p>Martin Computational Speciation Lab</p>
+                            </div>
+                            <span>Jun 2025 – Present</span>
+                        </div>
+                        <p class="experience-summary">Reduced simulation latency, parallelized Julia workflows, and built telemetry for large-scale evolutionary experiments.</p>
+                    </article>
+
+                    <article class="experience-card reveal">
+                        <div class="experience-top">
+                            <div>
+                                <h3>Software Engineer Intern</h3>
+                                <p>Imagine Games Network</p>
+                            </div>
+                            <span>Aug 2025 – Dec 2025</span>
+                        </div>
+                        <p class="experience-summary">Built feature selection and ingestion systems for production AI workflows.</p>
+                    </article>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Aaditya Sanil. All rights reserved.</p>
-        </div>
-    </footer>
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-tag">Projects</span>
+                    <h2>All the projects, all visible.</h2>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card reveal">
+                        <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>Provably Robust Deep Classifiers</h3>
+                            <ul class="project-bullets">
+                                <li>Built a provably robust classifier by optimizing a worst-case adversarial loss bound.</li>
+                                <li>Focused on certification, stability, and stronger guarantees than baseline training.</li>
+                            </ul>
+                            <div class="tag-row"><span>PyTorch</span><span>Convex Optimization</span><span>CVXPY</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <img src="projects/coevolution-screenshot.png" alt="Coevolutionary Trait Dynamics Analyzer" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>Coevolutionary Trait Dynamics Analyzer</h3>
+                            <ul class="project-bullets">
+                                <li>Analyzed coevolutionary simulations to measure trait emergence, stability, and divergence.</li>
+                                <li>Built quantitative tooling to inspect model behavior across repeated life cycles.</li>
+                            </ul>
+                            <div class="tag-row"><span>Python</span><span>Pandas</span><span>scikit-learn</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <img src="encounter.gif" alt="Build Your Own World" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>Build Your Own World</h3>
+                            <ul class="project-bullets">
+                                <li>Built a procedurally generated exploration game with seed-based world generation.</li>
+                                <li>Designed interactive gameplay systems around movement, discovery, and replayability.</li>
+                            </ul>
+                            <div class="tag-row"><span>Java</span><span>Procedural Gen</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>Diabetes Classifier</h3>
+                            <ul class="project-bullets">
+                                <li>Built a compact classification pipeline for predictive diagnostic analysis.</li>
+                                <li>Achieved an F1-score of 0.84 using KNN, Naive Bayes, and Extra Trees.</li>
+                            </ul>
+                            <div class="tag-row"><span>Python</span><span>scikit-learn</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <img src="projects/blosum62-matrix.svg" alt="ProteinLLMV1" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>ProteinLLMV1</h3>
+                            <ul class="project-bullets">
+                                <li>Built a custom protein language model using nanoGPT-style architecture.</li>
+                                <li>Wrapped the model in a full-stack app that integrates ESMFold for structure generation.</li>
+                            </ul>
+                            <div class="tag-row"><span>PyTorch</span><span>nanoGPT</span><span>Inference</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics System" onerror="this.style.display='none'">
+                        <div class="project-body">
+                            <h3>BMRC Logistics System</h3>
+                            <ul class="project-bullets">
+                                <li>Built a scalable inventory system with relational data modeling and validation logic.</li>
+                                <li>Designed clean query workflows for tracking, search, and operational visibility.</li>
+                            </ul>
+                            <div class="tag-row"><span>Full Stack</span><span>Database</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-visual project-visual-synagent" aria-hidden="true">
+                            <span>SynAgent</span>
+                            <small>AI / ML Infrastructure</small>
+                        </div>
+                        <div class="project-body">
+                            <h3>SynAgent</h3>
+                            <ul class="project-bullets">
+                                <li>Autonomous agent built around RAG workflows for unstructured data traversal.</li>
+                                <li>Designed to synthesize noisy inputs into faster, more confident decisions.</li>
+                            </ul>
+                            <div class="tag-row"><span>AI/ML</span><span>RAG</span><span>Infrastructure</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <div>
+                        <span class="section-tag">Contact</span>
+                        <h2>Let’s build something clean and expressive.</h2>
+                        <p>Email me at asanil@berkeley.edu or find me on Discord as acelinas.</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="mailto:asanil@berkeley.edu" class="button primary"><i class="fa-solid fa-paper-plane"></i> Email</a>
+                        <a href="https://discord.com/users/acelinas" target="_blank" rel="noreferrer" class="button"><i class="fa-brands fa-discord"></i> Discord</a>
+                        <a href="https://github.com/A-Sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
