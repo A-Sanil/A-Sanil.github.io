@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = Array.from(document.querySelectorAll('.reveal'));
     const typewriterElement = document.getElementById('typewriter');
     const typewriterStrings = [
-        'Machine Learning Engineer at Lawrence Berkeley National Laboratory',
+        'Machine Learning Engineer Intern at Lawrence Berkeley National Laboratory',
         'Former SWE Intern at Imagine Games Network'
     ];
 
