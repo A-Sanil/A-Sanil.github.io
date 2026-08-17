@@ -1,0 +1,421 @@
+/* ==========================================================================
+   apps.css — per-application styling. Chrome lives in win95.css; this is
+   only what goes inside a window body.
+   ========================================================================== */
+
+/* --- Shared markdown rendering ------------------------------------------- */
+
+.md { line-height: 1.5; }
+.md .md-h { margin: 14px 0 6px; font-size: 14px; }
+.md h1.md-h { font-size: 17px; }
+.md h2.md-h { font-size: 15px; }
+.md .md-p { margin: 6px 0; }
+.md .md-list { margin: 6px 0; padding-left: 22px; }
+.md .md-list li { margin: 2px 0; }
+.md .md-quote {
+  margin: 6px 0;
+  padding: 4px 8px;
+  border-left: 3px solid var(--w95-shadow);
+  color: #333;
+}
+.md .md-code {
+  padding: 0 3px;
+  background: var(--w95-face);
+  font-family: var(--w95-font-mono);
+}
+.md .md-pre {
+  margin: 8px 0;
+  padding: 6px 8px;
+  overflow-x: auto;
+  background: var(--w95-face);
+  font-family: var(--w95-font-mono);
+  box-shadow: inset -1px -1px var(--w95-hilight), inset 1px 1px var(--w95-shadow);
+}
+.md .md-img { max-width: 100%; height: auto; }
+.md table { border-collapse: collapse; }
+
+/* --- GitHub.exe ---------------------------------------------------------- */
+
+.gh-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding: 3px 2px 5px;
+}
+
+.gh-address {
+  flex: 1;
+  min-width: 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  background: var(--w95-field);
+  overflow: hidden;
+}
+
+.gh-address span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gh-toolbar .w95-btn { min-width: 0; height: 20px; min-height: 20px; }
+
+.gh-split { flex: 1; min-height: 0; display: flex; gap: 3px; }
+.gh-tree { flex: 0 0 168px; }
+.gh-tree.is-hidden { display: none; }
+.gh-main { flex: 1; min-width: 0; }
+
+.gh-ico { width: 16px; height: 16px; flex: none; display: inline-grid; place-items: center; }
+.gh-ico svg, .gh-ico img { width: 16px; height: 16px; object-fit: contain; }
+
+.gh-root { font-weight: bold; }
+.gh-node { padding-left: 18px; }
+
+/* Column layout is shared by the header row and every data row so they
+   stay aligned without a real <table>. */
+.gh-cols, .gh-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 130px 52px 128px;
+  align-items: center;
+  gap: 6px;
+}
+
+.gh-cols {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 3px 6px;
+  background: var(--w95-face);
+  font-weight: normal;
+  box-shadow: inset -1px -1px var(--w95-shadow), inset 1px 1px var(--w95-hilight);
+}
+
+.gh-cols span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.gh-rows { padding: 2px; }
+.gh-row { padding: 2px 4px; cursor: default; }
+.gh-row > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gh-c-name { display: flex; align-items: center; gap: 5px; }
+.gh-c-num { text-align: right; }
+.gh-c-date, .gh-c-lang { color: #333; }
+.gh-row.is-selected .gh-c-date,
+.gh-row.is-selected .gh-c-lang { color: inherit; }
+
+.gh-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-radius: 50%;
+  vertical-align: -1px;
+}
+
+.gh-langbar {
+  display: flex;
+  height: 14px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: inset -1px -1px var(--w95-hilight), inset 1px 1px var(--w95-shadow);
+}
+
+.gh-langbar i { height: 100%; }
+
+.gh-table { border-collapse: collapse; width: 100%; }
+.gh-table td { padding: 3px 8px 3px 0; vertical-align: top; }
+.gh-table td:first-child { white-space: nowrap; }
+
+.gh-profile { display: flex; gap: 16px; align-items: flex-start; }
+.gh-avatar { flex: none; box-shadow: inset -1px -1px var(--w95-hilight), inset 1px 1px var(--w95-shadow); }
+.gh-profile-copy { flex: 1; min-width: 0; }
+.gh-profile-copy h2 { margin: 0; font-size: 16px; }
+.gh-login { margin: 2px 0 8px; color: var(--w95-text-dim); }
+
+/* --- Repository detail window -------------------------------------------- */
+
+.repo-head { flex: none; padding: 8px 8px 6px; }
+.repo-head h2 { margin: 0 0 4px; font-size: 15px; }
+.repo-head p { margin: 0 0 8px; }
+
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.repo-topics { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.repo-topics span {
+  padding: 1px 6px;
+  background: var(--w95-face);
+  box-shadow: inset -1px -1px var(--w95-shadow), inset 1px 1px var(--w95-hilight);
+}
+
+.repo-actions { display: flex; gap: 6px; }
+.repo-readme { margin-top: 2px; }
+
+/* --- LinkedIn.exe -------------------------------------------------------- */
+
+.li-scroll { background: #fff; }
+
+.li-banner {
+  height: 54px;
+  background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+}
+
+.li-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 14px 12px;
+  margin-top: -26px;
+}
+
+.li-avatar {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  padding: 4px;
+  box-shadow: inset -1px -1px var(--w95-shadow), inset 1px 1px var(--w95-hilight),
+              0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.li-avatar svg, .li-avatar img { width: 56px; height: 56px; object-fit: contain; }
+
+.li-head-copy { flex: 1; min-width: 0; padding-top: 28px; }
+.li-head-copy h2 { margin: 0; font-size: 17px; }
+.li-headline { margin: 3px 0 2px; }
+.li-loc { margin: 0; color: var(--w95-text-dim); }
+.li-head .w95-btn { margin-top: 28px; flex: none; }
+
+.li-section { padding: 10px 14px; border-top: 1px solid #e0e0e0; }
+.li-section h3 { margin: 0 0 10px; font-size: 13px; }
+
+.li-entry { display: flex; gap: 10px; margin-bottom: 14px; }
+.li-entry:last-child { margin-bottom: 0; }
+.li-entry-icon { width: 28px; height: 28px; flex: none; }
+.li-entry-icon svg, .li-entry-icon img { width: 28px; height: 28px; }
+
+.li-role { margin: 0; font-weight: bold; }
+.li-org { margin: 1px 0 0; }
+.li-dates { margin: 1px 0 4px; color: var(--w95-text-dim); }
+.li-entry ul { margin: 4px 0 0; padding-left: 18px; }
+.li-entry li { margin: 2px 0; }
+
+.li-now {
+  margin-left: 6px;
+  padding: 0 5px;
+  background: #0a66c2;
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.li-skills { display: flex; flex-wrap: wrap; gap: 5px; }
+.li-skills span {
+  padding: 2px 8px;
+  background: #eef3f8;
+  border: 1px solid #c9d6e2;
+}
+
+.li-note {
+  margin: 0;
+  padding: 10px 14px 14px;
+  color: var(--w95-text-dim);
+  border-top: 1px solid #e0e0e0;
+}
+
+/* --- Notepad ------------------------------------------------------------- */
+
+.np-text {
+  margin: 0;
+  padding: 6px 8px;
+  font-family: var(--w95-font-mono);
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: pre;
+}
+
+/* --- Projects ------------------------------------------------------------ */
+
+.pj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 6px;
+  padding: 8px;
+}
+
+.pj-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  text-align: center;
+  cursor: default;
+}
+
+.pj-icon-img { width: 32px; height: 32px; }
+.pj-icon-img svg { width: 32px; height: 32px; }
+.pj-icon-label { padding: 1px 3px; line-height: 1.2; }
+
+.pj-icon.is-selected .pj-icon-label {
+  background: var(--w95-select);
+  color: var(--w95-select-text);
+}
+
+.pj-icon:focus-visible { outline: 1px dotted var(--w95-text); }
+
+.pj-detail h2 { margin: 0 0 2px; font-size: 15px; }
+.pj-kind { margin: 0 0 10px; color: var(--w95-text-dim); }
+.pj-detail ul { margin: 0; padding-left: 18px; }
+.pj-detail li { margin: 4px 0; }
+
+.pj-shot { margin-bottom: 10px; padding: 3px; background: #fff; }
+.pj-shot img { display: block; width: 100%; height: auto; }
+
+.pj-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; }
+.pj-tags span {
+  padding: 1px 6px;
+  background: var(--w95-face);
+  box-shadow: inset -1px -1px var(--w95-shadow), inset 1px 1px var(--w95-hilight);
+}
+
+.pj-actions { display: flex; justify-content: flex-end; gap: 6px; flex: none; padding: 6px 0 0; }
+
+/* --- Minesweeper --------------------------------------------------------- */
+
+/* Shrink-wraps the board so the window can be measured against it. */
+.ms-outer {
+  width: max-content;
+  margin: 4px;
+  padding: 5px;
+  background: var(--w95-face);
+}
+
+.ms-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  margin-bottom: 5px;
+  background: var(--w95-face);
+}
+
+.ms-led {
+  padding: 1px 3px;
+  background: #000;
+  color: #f00;
+  font-family: var(--w95-font-mono);
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.05;
+  letter-spacing: 1px;
+}
+
+.ms-face {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: var(--w95-face);
+  font-size: 15px;
+  line-height: 1;
+  cursor: default;
+  box-shadow:
+    inset -1px -1px var(--w95-dark), inset 1px 1px var(--w95-hilight),
+    inset -2px -2px var(--w95-shadow), inset 2px 2px var(--w95-light);
+}
+
+.ms-face:active {
+  box-shadow:
+    inset -1px -1px var(--w95-hilight), inset 1px 1px var(--w95-dark),
+    inset -2px -2px var(--w95-light), inset 2px 2px var(--w95-shadow);
+}
+
+/* Column count is set from JS — `auto-fill` would silently drop a column,
+   since border-box subtracts this padding from the track area. */
+.ms-board {
+  display: grid;
+  grid-auto-flow: row;
+  width: max-content;
+  background: var(--w95-face);
+  padding: 3px;
+}
+
+.ms-cell {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: var(--w95-face);
+  font-family: var(--w95-font);
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 16px;
+  text-align: center;
+  cursor: default;
+  box-shadow:
+    inset -1px -1px var(--w95-shadow), inset 1px 1px var(--w95-hilight),
+    inset -2px -2px var(--w95-shadow), inset 2px 2px var(--w95-hilight);
+}
+
+/* Revealed cells lose the bevel and gain a single hairline grid. */
+.ms-cell.is-open {
+  box-shadow: none;
+  border-left: 1px solid var(--w95-shadow);
+  border-top: 1px solid var(--w95-shadow);
+  line-height: 14px;
+}
+
+.ms-cell.is-flag { font-size: 10px; }
+.ms-cell.is-mine { font-size: 10px; }
+.ms-cell.is-blast { background: #f00; }
+.ms-cell.is-wrong { color: #f00; text-decoration: line-through; }
+
+/* The canonical Minesweeper number palette. */
+.ms-cell[data-n="1"] { color: #0000ff; }
+.ms-cell[data-n="2"] { color: #008000; }
+.ms-cell[data-n="3"] { color: #ff0000; }
+.ms-cell[data-n="4"] { color: #000080; }
+.ms-cell[data-n="5"] { color: #800000; }
+.ms-cell[data-n="6"] { color: #008080; }
+.ms-cell[data-n="7"] { color: #000000; }
+.ms-cell[data-n="8"] { color: #808080; }
+
+/* --- My Computer / properties -------------------------------------------- */
+
+.mc-head { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.mc-head-icon { width: 48px; height: 48px; flex: none; }
+.mc-head-icon svg { width: 48px; height: 48px; }
+.mc-head h2 { margin: 0 0 2px; font-size: 15px; }
+.mc-head p { margin: 0; color: var(--w95-text-dim); }
+
+.mc-table { border-collapse: collapse; width: 100%; }
+.mc-table td { padding: 3px 10px 3px 0; vertical-align: top; }
+.mc-table td:first-child { white-space: nowrap; color: var(--w95-text-dim); width: 1%; }
+
+.mc-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+
+/* --- Mobile tweaks ------------------------------------------------------- */
+
+@media (max-width: 767px), (pointer: coarse) and (max-width: 900px) {
+  .gh-split { flex-direction: column; }
+  .gh-tree { flex: 0 0 auto; max-height: 96px; }
+
+  /* Stars and dates don't survive a phone-width grid — keep name + language. */
+  .gh-cols, .gh-row { grid-template-columns: minmax(0, 1fr) 96px; }
+  .gh-c-num, .gh-c-date { display: none; }
+
+  .gh-profile { flex-direction: column; }
+  .li-head { flex-wrap: wrap; }
+  .li-head .w95-btn, .li-head-copy { margin-top: 0; padding-top: 0; }
+  .li-head { margin-top: -20px; }
+  .li-head-copy { flex: 1 1 100%; order: 3; }
+
+  .np-text { font-size: 11px; }
+
+  /* Expert is 30 columns wide — let the board scroll rather than overflow. */
+  .ms-outer { overflow: auto; }
+}

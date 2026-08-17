@@ -1,256 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaditya Sanil | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Aaditya Sanil — CS @ Berkeley</title>
+<meta name="description" content="Aaditya Sanil — Computer Science at UC Berkeley, SDE Intern at AWS. Rust, Python and C++, working on infrastructure, low latency systems and ML infrastructure. Portfolio, projects and experience.">
+<meta name="theme-color" content="#008080">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aaditya Sanil — CS @ Berkeley">
+<meta property="og:description" content="ML and infrastructure engineering. Portfolio built as a Windows 95 desktop.">
+<meta property="og:url" content="https://a-sanil.github.io/">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://a-sanil.github.io/">
+<link rel="icon" href="assets/github.png">
+
+<link rel="stylesheet" href="css/win95.css">
+<link rel="stylesheet" href="css/desktop.css">
+<link rel="stylesheet" href="css/apps.css">
 </head>
 <body>
-    <div class="page-bg"></div>
-    <div class="noise-overlay"></div>
 
-    <header class="topbar">
-        <div class="topbar-inner container">
-            <a href="#home" class="brand">Aaditya Profilo</a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-links" id="nav-links">
-                <a href="#home">Home</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+<!-- Real content for crawlers and for anyone without JavaScript. The same
+     text is presented through the desktop UI once the shell boots. -->
+<div id="seo">
+  <h1>Aaditya Sanil</h1>
+  <p>Computer Science at UC Berkeley. SDE Intern at Amazon Web Services. Rust, Python, C/C++.
+     Interested in infrastructure, low latency systems, and ML infrastructure.</p>
 
-    <main>
-        <section id="home" class="hero section">
-            <div class="container hero-grid">
-                <div class="hero-copy reveal">
-                    <span class="eyebrow">CS @ Berkeley • ML Engineer • Builder</span>
-                    <h1>Aaditya Sanil</h1>
-                    <p class="hero-lead"><span id="typewriter"></span><span class="cursor" aria-hidden="true"></span></p>
-                    <div class="hero-actions">
-                        <a href="mailto:asanil@berkeley.edu" class="button primary"><i class="fa-solid fa-envelope"></i> Email</a>
-                        <a href="https://discord.com/users/acelinas" target="_blank" rel="noreferrer" class="button"><i class="fa-brands fa-discord"></i> Discord</a>
-                        <a href="https://github.com/A-Sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+  <h2>Experience</h2>
+  <ul>
+    <li><strong>Software Development Engineer Intern</strong>, Amazon Web Services —
+        building and shipping backend services on AWS infrastructure.</li>
+    <li><strong>Machine Learning Engineer Intern</strong>, Lawrence Berkeley National Laboratory —
+        AI/ML infrastructure for training-data workflows and agent systems supporting drug discovery.</li>
+    <li><strong>Undergraduate ML Researcher</strong>, Martin Computational Speciation Lab (Jun 2025 – Present) —
+        optimized Julia simulation pipelines and built telemetry for large-scale evolutionary experiments.</li>
+    <li><strong>Software Engineer Intern</strong>, Imagine Games Network (Aug 2025 – Dec 2025) —
+        feature selection and data ingestion systems for production AI workflows.</li>
+  </ul>
 
-                <div class="hero-card reveal">
-                    <div class="card-shell as-shell" aria-label="Aaditya Sanil initials badge">
-                        <div class="as-badge">AS</div>
-                    </div>
-                    <div class="floating-pill">Machine learning + infrastructure</div>
-                </div>
-            </div>
-        </section>
+  <h2>Projects</h2>
+  <ul>
+    <li>SynAgent — autonomous agent built around RAG workflows for unstructured data traversal.</li>
+    <li>ProteinLLMV1 — custom protein language model with ESMFold structure generation.</li>
+    <li>Provably Robust Deep Classifiers — worst-case adversarial loss bound optimization.</li>
+    <li>Valorant Rank Tracker — rank progression analytics with model-based win forecasting.</li>
+    <li>Coevolutionary Trait Dynamics Analyzer — quantitative tooling for coevolutionary simulations.</li>
+    <li>Build Your Own World — procedurally generated exploration game in Java.</li>
+    <li>Diabetes Classifier — diagnostic classification pipeline, 0.84 F1.</li>
+    <li>BMRC Logistics System — inventory tracking with relational data modeling.</li>
+  </ul>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="section-tag">Skills</span>
-                    <h2>Tools I reach for most.</h2>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-tile reveal"><span>HTML</span></div>
-                    <div class="skill-tile reveal"><span>CSS</span></div>
-                    <div class="skill-tile reveal"><span>JavaScript</span></div>
-                    <div class="skill-tile reveal"><span>C</span></div>
-                    <div class="skill-tile reveal"><span>C++</span></div>
-                    <div class="skill-tile reveal"><span>Python</span></div>
-                    <div class="skill-tile reveal"><span>PyTorch</span></div>
-                    <div class="skill-tile reveal"><span>FastAPI</span></div>
-                    <div class="skill-tile reveal"><span>SQL</span></div>
-                    <div class="skill-tile reveal"><span>Docker</span></div>
-                </div>
-            </div>
-        </section>
+  <h2>Contact</h2>
+  <ul>
+    <li><a href="mailto:asanil@berkeley.edu">asanil@berkeley.edu</a></li>
+    <li><a href="https://github.com/A-Sanil">github.com/A-Sanil</a></li>
+    <li><a href="https://www.linkedin.com/in/aaditya-sanil">linkedin.com/in/aaditya-sanil</a></li>
+  </ul>
+</div>
 
-        <section id="experience" class="section">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="section-tag">Work Experience</span>
-                    <h2>Relevant roles.</h2>
-                </div>
-                <div class="experience-list">
-                    <article class="experience-card reveal featured">
-                        <div class="experience-top">
-                            <div>
-                                <h3>Machine Learning Engineer Intern</h3>
-                                <p>Lawrence Berkeley National Laboratory</p>
-                            </div>
-                            <span>Featured</span>
-                        </div>
-                        <p class="experience-summary">Built AI/ML infrastructure for training data workflows and agent systems for drug discovery, with SynAgent-style tooling that supports cleaner experimentation, faster iteration, and more reliable model development.</p>
-                    </article>
+<noscript>
+  <style>#seo { position: static !important; width: auto !important; height: auto !important;
+    clip: auto !important; overflow: visible !important; padding: 24px; max-width: 46em;
+    margin: 0 auto; background: #fff; }
+    #boot, #splash, #desktop, #taskbar { display: none !important; }
+    body { overflow: auto; }</style>
+</noscript>
 
-                    <article class="experience-card reveal">
-                        <div class="experience-top">
-                            <div>
-                                <h3>Undergraduate ML Researcher</h3>
-                                <p>Martin Computational Speciation Lab</p>
-                            </div>
-                            <span>Jun 2025 – Present</span>
-                        </div>
-                        <p class="experience-summary">Optimized Julia simulation pipelines, cut latency with parallel execution, and built telemetry for large-scale evolutionary experiments.</p>
-                    </article>
+<!-- ============================ boot ============================ -->
+<div id="boot">
+  <pre class="boot-lines"></pre><span class="boot-cursor"></span>
+  <div class="boot-skip">click to skip</div>
+</div>
 
-                    <article class="experience-card reveal">
-                        <div class="experience-top">
-                            <div>
-                                <h3>Software Engineer Intern</h3>
-                                <p>Imagine Games Network</p>
-                            </div>
-                            <span>Aug 2025 – Dec 2025</span>
-                        </div>
-                        <p class="experience-summary">Built feature selection and ingestion systems for production AI workflows, with an emphasis on throughput, stability, and clean data movement.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<div id="splash" class="is-hidden">
+  <div class="splash-card">
+    <svg class="splash-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <g transform="skewY(-9) translate(0 6)">
+        <path fill="#ff3b30" d="M3 3h12v12H3z"/>
+        <path fill="#4cd964" d="M17 3h12v12H17z"/>
+        <path fill="#0a84ff" d="M3 17h12v12H3z"/>
+        <path fill="#ffcc00" d="M17 17h12v12H17z"/>
+      </g>
+    </svg>
+    <div class="splash-copy">
+      <div class="splash-small">Sanil</div>
+      <div class="splash-big">95</div>
+      <div class="splash-sub">Aaditya Sanil &nbsp;·&nbsp; CS @ UC Berkeley</div>
+    </div>
+  </div>
+  <div class="w95-progress"><div class="w95-progress-fill" style="width:0"></div></div>
+</div>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <span class="section-tag">Projects</span>
-                    <h2>All the projects, all visible.</h2>
-                </div>
-                <div class="projects-grid">
-                    <article class="project-card reveal">
-                        <div class="project-visual project-visual-synagent" aria-hidden="true">
-                            <span>Valorant</span>
-                            <small>Rank Tracker</small>
-                        </div>
-                        <div class="project-body">
-                            <h3>Valorant Rank Tracker</h3>
-                            <ul class="project-bullets">
-                                <li>Tracks player rank progression, match history, and seasonal performance trends.</li>
-                                <li>Uses model-based forecasting to predict game wins with about 87% confidence.</li>
-                            </ul>
-                            <div class="tag-row"><span>Prediction</span><span>Analytics</span><span>Game Data</span></div>
-                        </div>
-                    </article>
+<!-- =========================== desktop =========================== -->
+<div id="desktop">
+  <div id="icons"></div>
+  <div id="marquee"></div>
+</div>
 
-                    <article class="project-card reveal">
-                        <img src="projects/adversarial-screenshot.png" alt="Provably Robust Deep Classifiers" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>Provably Robust Deep Classifiers</h3>
-                            <ul class="project-bullets">
-                                <li>Built a provably robust classifier by optimizing a worst-case adversarial loss bound.</li>
-                                <li>Focused on certification, stability, and stronger guarantees than baseline training.</li>
-                            </ul>
-                            <div class="tag-row"><span>PyTorch</span><span>Convex Optimization</span><span>CVXPY</span></div>
-                        </div>
-                    </article>
+<!-- =========================== taskbar =========================== -->
+<div id="taskbar">
+  <button class="w95-btn" id="start-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+      <g transform="skewY(-9) translate(0 6)">
+        <path fill="#ff3b30" d="M3 3h12v12H3z"/>
+        <path fill="#4cd964" d="M17 3h12v12H17z"/>
+        <path fill="#0a84ff" d="M3 17h12v12H3z"/>
+        <path fill="#ffcc00" d="M17 17h12v12H17z"/>
+      </g>
+    </svg>
+    Start
+  </button>
+  <div class="taskbar-sep"></div>
+  <div id="tasks"></div>
+  <div id="tray"><span id="clock"></span></div>
+</div>
 
-                    <article class="project-card reveal">
-                        <img src="projects/coevolution-screenshot.png" alt="Coevolutionary Trait Dynamics Analyzer" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>Coevolutionary Trait Dynamics Analyzer</h3>
-                            <ul class="project-bullets">
-                                <li>Analyzed coevolutionary simulations to measure trait emergence, stability, and divergence.</li>
-                                <li>Built quantitative tooling to inspect model behavior across repeated life cycles.</li>
-                            </ul>
-                            <div class="tag-row"><span>Python</span><span>Pandas</span><span>scikit-learn</span></div>
-                        </div>
-                    </article>
+<div id="start-menu"></div>
+<div id="context-menu"></div>
 
-                    <article class="project-card reveal">
-                        <img src="encounter.gif" alt="Build Your Own World" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>Build Your Own World</h3>
-                            <ul class="project-bullets">
-                                <li>Built a procedurally generated exploration game with seed-based world generation.</li>
-                                <li>Designed interactive gameplay systems around movement, discovery, and replayability.</li>
-                            </ul>
-                            <div class="tag-row"><span>Java</span><span>Procedural Gen</span></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <img src="projects/diabetes-screenshot.png" alt="Diabetes Classifier" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>Diabetes Classifier</h3>
-                            <ul class="project-bullets">
-                                <li>Built a compact classification pipeline for predictive diagnostic analysis.</li>
-                                <li>Achieved an F1-score of 0.84 using KNN, Naive Bayes, and Extra Trees.</li>
-                            </ul>
-                            <div class="tag-row"><span>Python</span><span>scikit-learn</span></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <img src="projects/blosum62-matrix.svg" alt="ProteinLLMV1" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>ProteinLLMV1</h3>
-                            <ul class="project-bullets">
-                                <li>Built a custom protein language model using nanoGPT-style architecture.</li>
-                                <li>Wrapped the model in a full-stack app that integrates ESMFold for structure generation.</li>
-                            </ul>
-                            <div class="tag-row"><span>PyTorch</span><span>nanoGPT</span><span>Inference</span></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <img src="projects/bmrc-logistics-screenshot.png" alt="BMRC Logistics System" onerror="this.style.display='none'">
-                        <div class="project-body">
-                            <h3>BMRC Logistics System</h3>
-                            <ul class="project-bullets">
-                                <li>Built a scalable inventory system with relational data modeling and validation logic.</li>
-                                <li>Designed clean query workflows for tracking, search, and operational visibility.</li>
-                            </ul>
-                            <div class="tag-row"><span>Full Stack</span><span>Database</span></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-visual project-visual-synagent" aria-hidden="true">
-                            <span>SynAgent</span>
-                            <small>AI / ML Infrastructure</small>
-                        </div>
-                        <div class="project-body">
-                            <h3>SynAgent</h3>
-                            <ul class="project-bullets">
-                                <li>Autonomous agent built around RAG workflows for unstructured data traversal.</li>
-                                <li>Designed to synthesize noisy inputs into faster, more confident decisions.</li>
-                            </ul>
-                            <div class="tag-row"><span>AI/ML</span><span>RAG</span><span>Infrastructure</span></div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="contact-card reveal">
-                    <div>
-                        <span class="section-tag">Contact</span>
-                        <h2>Let’s build something clean and expressive.</h2>
-                        <p>Email me at asanil@berkeley.edu or find me on Discord as acelinas.</p>
-                    </div>
-                    <div class="contact-actions">
-                        <a href="mailto:asanil@berkeley.edu" class="button primary"><i class="fa-solid fa-paper-plane"></i> Email</a>
-                        <a href="https://discord.com/users/acelinas" target="_blank" rel="noreferrer" class="button"><i class="fa-brands fa-discord"></i> Discord</a>
-                        <a href="https://github.com/A-Sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://linkedin.com/in/aaditya-sanil" target="_blank" rel="noreferrer" class="icon-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+<script type="module" src="js/desktop.js"></script>
 </body>
 </html>

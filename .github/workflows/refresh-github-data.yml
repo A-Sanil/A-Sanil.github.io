@@ -1,0 +1,86 @@
+name: Refresh GitHub data
+
+# Keeps data/github.json current so GitHub.exe loads instantly and never
+# spends a visitor's 60-req/hr unauthenticated API budget.
+on:
+  schedule:
+    - cron: '17 6 * * *'   # daily, 06:17 UTC
+  workflow_dispatch:        # manual "Run workflow" button
+  push:
+    branches: [main]
+    paths: ['.github/workflows/refresh-github-data.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch profile, repos and language totals
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER: A-Sanil
+        run: |
+          set -euo pipefail
+          mkdir -p data
+
+          gh api "users/$USER" > /tmp/user.json
+
+          # Public, non-fork repos only, newest push first.
+          gh api --paginate "users/$USER/repos?per_page=100&sort=pushed" \
+            | jq -s 'add | map(select(.fork == false and .private == false))' > /tmp/repos.json
+
+          # Roll every repo's language byte counts into one total.
+          # `tr -d '\r'` guards against a jq build emitting CRLF, which would
+          # otherwise smuggle a carriage return into each request URL.
+          mkdir -p /tmp/langs
+          for repo in $(jq -r '.[].name' /tmp/repos.json | tr -d '\r'); do
+            gh api "repos/$USER/$repo/languages" > "/tmp/langs/$repo.json" \
+              || echo '{}' > "/tmp/langs/$repo.json"
+          done
+          cat /tmp/langs/*.json | jq -s 'reduce .[] as $x ({};
+            reduce ($x | to_entries[]) as $e (.; .[$e.key] = ((.[$e.key] // 0) + $e.value)))
+          ' > /tmp/langs.json
+
+          jq -n \
+            --slurpfile user /tmp/user.json \
+            --slurpfile repos /tmp/repos.json \
+            --slurpfile langs /tmp/langs.json \
+            '{
+              generated: (now | todate),
+              user: ($user[0] | {
+                login, name, bio, location, company, blog,
+                followers, following, public_repos,
+                avatar_url, html_url, created_at
+              }),
+              languages: $langs[0],
+              repos: ($repos[0] | map({
+                name, description, language,
+                stars: .stargazers_count,
+                forks: .forks_count,
+                size,
+                topics,
+                url: .html_url,
+                homepage,
+                pushed: .pushed_at,
+                created: .created_at
+              }))
+            }' > data/github.json
+
+          echo "Wrote $(jq '.repos | length' data/github.json) repos."
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/github.json
+          # `generated` changes every run, so only commit when repo data moved.
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: refresh GitHub data"
+            git push
+          fi
