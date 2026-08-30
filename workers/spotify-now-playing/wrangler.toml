@@ -1,0 +1,7 @@
+name = "sanil-spotify-now-playing"
+main = "src/index.js"
+compatibility_date = "2026-08-29"
+
+[vars]
+ALLOWED_ORIGIN = "https://a-sanil.github.io"
+SPOTIFY_REDIRECT_URI = "https://sanil-spotify-now-playing.YOUR-SUBDOMAIN.workers.dev/callback"

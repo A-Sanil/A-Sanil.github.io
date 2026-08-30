@@ -12,6 +12,7 @@ import { projectsApp } from './apps/projects.js';
 import { notepadApp } from './apps/notepad.js';
 import { minesweeperApp } from './apps/minesweeper.js';
 import { computerApp } from './apps/computer.js';
+import { spotifyApp } from './apps/spotify.js';
 
 const desktopEl = document.getElementById('desktop');
 const iconsEl = document.getElementById('icons');
@@ -59,6 +60,7 @@ const DESKTOP_ICONS = [
   { label: 'My Computer',   icon: icons.myComputer,  app: computerApp },
   { label: 'Projects',      icon: icons.folder,      app: projectsApp },
   { label: 'GitHub.exe',    icon: icons.github,      app: githubApp },
+  { label: 'Spotify.exe',   icon: icons.spotify,     app: spotifyApp },
   // Opens the real profile in a new tab. The in-desktop LinkedIn window is
   // still available from Start -> Programs.
   { label: 'LinkedIn',      icon: icons.linkedin,
@@ -118,6 +120,7 @@ const START_ITEMS = [
     label: 'Programs', icon: icons.folder, sub: [
       { label: 'GitHub.exe',   icon: icons.github,  app: githubApp },
       { label: 'LinkedIn.exe', icon: icons.linkedin, app: linkedinApp },
+      { label: 'Spotify.exe',  icon: icons.spotify, app: spotifyApp },
       { label: 'Projects',     icon: icons.folder,  app: projectsApp },
       { label: 'Notepad',      icon: icons.notepad, app: notepadApp },
       { label: 'Minesweeper',  icon: icons.mine,    app: minesweeperApp },
@@ -289,7 +292,7 @@ const BIOS = [
   'Detecting IDE Primary Master   ... A-SANIL-PORTFOLIO',
   'Detecting IDE Primary Slave    ... GITHUB.EXE',
   'Detecting IDE Secondary Master ... LINKEDIN.EXE',
-  'Detecting IDE Secondary Slave  ... MINESWEEPER',
+  'Detecting IDE Secondary Slave  ... SPOTIFY.EXE',
   '',
   'Berkeley, CA                   ... OK',
   'Rust / Python / C++            ... OK',
