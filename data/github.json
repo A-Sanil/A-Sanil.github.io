@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T11:16:46Z",
+  "generated": "2026-09-03T11:13:15Z",
   "user": {
     "login": "A-Sanil",
     "name": "Sanil",
@@ -9,7 +9,7 @@
     "blog": "Sanil",
     "followers": 5,
     "following": 3,
-    "public_repos": 19,
+    "public_repos": 20,
     "avatar_url": "https://avatars.githubusercontent.com/u/211419040?v=4",
     "html_url": "https://github.com/A-Sanil",
     "created_at": "2025-05-12T22:45:28Z"
@@ -18,7 +18,7 @@
     "JavaScript": 759192,
     "CSS": 79480,
     "HTML": 132660,
-    "Python": 1854582,
+    "Python": 1857444,
     "Makefile": 266,
     "Shell": 10686,
     "TypeScript": 317705,
@@ -28,9 +28,23 @@
     "Jupyter Notebook": 208316,
     "Dockerfile": 327,
     "Batchfile": 2806,
-    "Rust": 547
+    "C++": 2684,
+    "Rust": 3014
   },
   "repos": [
+    {
+      "name": "data-structures",
+      "description": null,
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "size": 9,
+      "topics": [],
+      "url": "https://github.com/A-Sanil/data-structures",
+      "homepage": null,
+      "pushed": "2026-09-03T02:36:14Z",
+      "created": "2026-09-03T02:29:16Z"
+    },
     {
       "name": "A-Sanil.github.io",
       "description": null,
@@ -41,7 +55,7 @@
       "topics": [],
       "url": "https://github.com/A-Sanil/A-Sanil.github.io",
       "homepage": null,
-      "pushed": "2026-09-01T11:38:13Z",
+      "pushed": "2026-09-02T11:16:47Z",
       "created": "2025-05-29T01:42:35Z"
     },
     {
