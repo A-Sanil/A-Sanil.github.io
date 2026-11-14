@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T14:32:18Z",
+  "generated": "2026-11-14T13:29:03Z",
   "user": {
     "login": "A-Sanil",
     "name": "Sanil",
@@ -17,7 +17,7 @@
   "languages": {
     "JavaScript": 759192,
     "CSS": 79480,
-    "HTML": 132660,
+    "HTML": 132961,
     "Python": 1857444,
     "Makefile": 266,
     "Shell": 10686,
@@ -38,11 +38,11 @@
       "language": "JavaScript",
       "stars": 0,
       "forks": 0,
-      "size": 6927,
+      "size": 6931,
       "topics": [],
       "url": "https://github.com/A-Sanil/A-Sanil.github.io",
       "homepage": null,
-      "pushed": "2026-11-12T15:12:01Z",
+      "pushed": "2026-11-13T21:13:39Z",
       "created": "2025-05-29T01:42:35Z"
     },
     {
