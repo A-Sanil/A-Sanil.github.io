@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T13:29:03Z",
+  "generated": "2026-11-15T13:54:37Z",
   "user": {
     "login": "A-Sanil",
     "name": "Sanil",
@@ -9,15 +9,15 @@
     "blog": "Sanil",
     "followers": 5,
     "following": 3,
-    "public_repos": 20,
+    "public_repos": 21,
     "avatar_url": "https://avatars.githubusercontent.com/u/211419040?v=4",
     "html_url": "https://github.com/A-Sanil",
     "created_at": "2025-05-12T22:45:28Z"
   },
   "languages": {
-    "JavaScript": 759192,
-    "CSS": 79480,
-    "HTML": 132961,
+    "JavaScript": 885717,
+    "CSS": 85634,
+    "HTML": 142713,
     "Python": 1857444,
     "Makefile": 266,
     "Shell": 10686,
@@ -33,16 +33,29 @@
   },
   "repos": [
     {
+      "name": "Elo-for-Leetcode",
+      "description": "Gives your Leetcode problems a codeforces score",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "size": 153,
+      "topics": [],
+      "url": "https://github.com/A-Sanil/Elo-for-Leetcode",
+      "homepage": null,
+      "pushed": "2026-11-15T01:07:16Z",
+      "created": "2026-11-14T23:35:47Z"
+    },
+    {
       "name": "A-Sanil.github.io",
       "description": null,
       "language": "JavaScript",
       "stars": 0,
       "forks": 0,
-      "size": 6931,
+      "size": 7101,
       "topics": [],
       "url": "https://github.com/A-Sanil/A-Sanil.github.io",
       "homepage": null,
-      "pushed": "2026-11-13T21:13:39Z",
+      "pushed": "2026-11-15T00:18:24Z",
       "created": "2025-05-29T01:42:35Z"
     },
     {
