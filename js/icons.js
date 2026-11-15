@@ -24,7 +24,6 @@ const img = (src, alt) => `<img src="${src}" alt="${alt}" draggable="false">`;
 export const github = img('assets/github.png', 'GitHub');
 export const linkedin = img('assets/linkedin.png', 'LinkedIn');
 export const berkeley = img('assets/berkeley.png', 'UC Berkeley');
-export const spotify = img('assets/spotify.png', 'Spotify');
 
 /* --- Shell icons --------------------------------------------------------- */
 
@@ -111,7 +110,7 @@ export const run = svg(`
 
 /* Small monochrome glyph used in title bars, keyed by app id. */
 export const titleGlyph = {
-  github: '🐙', linkedin: '💼', spotify: '🎵', projects: '📁', notepad: '📝',
+  github: '🐙', linkedin: '💼', projects: '📁', notepad: '📝',
   minesweeper: '💣', computer: '🖥', resume: '📄', help: '❓',
 };
 

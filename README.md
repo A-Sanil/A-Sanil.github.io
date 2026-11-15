@@ -1,80 +1,21 @@
-# Aaditya Sanil - Portfolio Website
+# Aaditya Sanil’s portfolio
 
-A modern, responsive portfolio website showcasing experience, projects, and education.
+A Windows 95-style desktop built with plain HTML, CSS, and JavaScript. Live at [a-sanil.github.io](https://a-sanil.github.io/).
 
-## Features
+- **My Computer** opens a short bio and an **Open résumé** button.
+- **Resume.pdf** opens the current public résumé in a new tab. You can also find it under **Start → Documents**.
+- **Projects** includes the LeetCode extension, SynAgent, Aegis Route, and more.
+- GitHub, LinkedIn, and Minesweeper are still on the desktop.
 
-- **Timeline-based layout** for experience and projects
-- **Responsive design** that works on all devices
-- **Smooth scrolling** navigation
-- **Animated sections** with fade-in effects
-- **Clean, modern UI** inspired by contemporary portfolio designs
+## Develop locally
 
-## Project Structure
+From the repository root, run `python -m http.server 8000` and open `http://localhost:8000/`. The site uses JavaScript modules, so opening `index.html` directly from disk isn’t sufficient. Edit `js/apps/computer.js` for the desktop bio, `index.html` for the no-JavaScript bio, or `js/apps/projects.js` for project details.
 
-```
-A-Sanil.github.io/
-├── index.html          # Main HTML file
-├── styles.css          # All styling
-├── script.js           # JavaScript for interactivity
-├── projects/           # Project screenshots folder
-│   ├── byow-screenshot.png
-│   ├── adversarial-screenshot.png
-│   ├── coevolution-screenshot.png
-│   └── diabetes-screenshot.png
-└── README.md           # This file
-```
+## Update the résumé
 
-## Adding Screenshots
+The public file is [resume.pdf](https://a-sanil.github.io/resume.pdf). Replace that file with a reviewed, public-safe PDF; the desktop links don’t need to change.
 
-To add screenshots for your projects:
+- [Manual Overleaf export and review](.github/resume-sync/README.md): no secrets or Overleaf plan upgrade.
+- [Optional automatic Overleaf publishing](.github/resume-sync/AUTOMATIC.md): private source and publisher setup; only the compiled public PDF is pushed here.
 
-1. Place your screenshot images in the `projects/` folder
-2. Name them according to the project:
-   - `byow-screenshot.png` - For the BYOW project
-   - `adversarial-screenshot.png` - For the Adversarial Probability project
-   - `coevolution-screenshot.png` - For the Coevolutionary Trait Dynamics Analyzer
-   - `diabetes-screenshot.png` - For the Diabetes Classifier
-
-3. The images will automatically display in the project sections. If an image is missing, it will be hidden gracefully.
-
-## Customization
-
-### Colors
-Edit the CSS variables in `styles.css` to change the color scheme:
-```css
-:root {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    /* ... */
-}
-```
-
-### Content
-Edit `index.html` to update:
-- Personal information
-- Experience entries
-- Project descriptions
-- Education details
-- Contact information
-
-## Deployment
-
-This is a GitHub Pages repository. To deploy:
-
-1. Push your changes to the `main` branch
-2. Go to Settings > Pages in your GitHub repository
-3. Select the source branch (usually `main`)
-4. Your site will be available at `https://A-Sanil.github.io`
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-Personal portfolio - All rights reserved.
-
+The live site deploys with GitHub Pages. Do not put private résumé source or unredacted PDFs in this public Git repository, even on an unmerged branch.

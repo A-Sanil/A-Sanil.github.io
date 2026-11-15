@@ -11,15 +11,37 @@ import * as icons from '../icons.js';
 
 export const PROJECTS = [
   {
+    name: 'Elo for LeetCode',
+    kind: 'Browser Extension',
+    image: null,
+    repo: 'https://github.com/A-Sanil/Elo-for-Leetcode',
+    bullets: [
+      'Adds contest-derived ratings and clearly labeled difficulty estimates to problem pages.',
+      'Uses locally stored practice outcomes to recommend problems around a user’s estimated level.',
+    ],
+    tags: ['JavaScript', 'Chrome Extension', 'Data'],
+  },
+  {
     name: 'SynAgent',
     kind: 'AI / ML Infrastructure',
     image: null,
     repo: 'https://github.com/A-Sanil/SynAgent',
     bullets: [
-      'Autonomous agent built around RAG workflows for unstructured data traversal.',
-      'Designed to synthesize noisy inputs into faster, more confident decisions.',
+      'Built a drug discovery pipeline for molecule generation, synthesis planning, and validation.',
+      'Improved synthetic route validity from 94% to 98% in the integrated pipeline.',
     ],
-    tags: ['AI/ML', 'RAG', 'Infrastructure', 'Python'],
+    tags: ['Python', 'PyTorch', 'Pydantic AI', 'FastAPI'],
+  },
+  {
+    name: 'Aegis Route',
+    kind: 'Routing and Optimization',
+    image: null,
+    repo: null,
+    bullets: [
+      'Won a sponsor award at UC Berkeley’s AI Hackathon for a wildfire rescue route planner.',
+      'Built a routing solver for vehicle capacity and hazard constraints, with Redis-backed updates for rerouting.',
+    ],
+    tags: ['Python', 'LKH', 'Redis', 'Optimization'],
   },
   {
     name: 'ProteinLLMV1',

@@ -1,0 +1,70 @@
+name: Check public resume PDF
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['resume.pdf']
+
+permissions:
+  contents: read
+
+jobs:
+  check-pdf:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+
+      - name: Check scope and file type
+        shell: bash
+        run: |
+          set -euo pipefail
+          # HEAD is GitHub's test merge; its first parent is the PR base.
+          if [[ "$(git diff --name-only --no-renames HEAD^1 HEAD)" != resume.pdf ]]; then
+            echo 'A resume update must change only the root resume.pdf.' >&2
+            exit 1
+          fi
+          if [[ "$(git ls-tree HEAD -- resume.pdf | cut -d ' ' -f 1)" != 100644 || ! -f resume.pdf || -L resume.pdf ]]; then
+            echo 'Expected a regular, non-executable PDF; removal is not a resume update.' >&2
+            exit 1
+          fi
+
+      - name: Install PDF validator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends qpdf
+
+      - name: Validate PDF and report review hash
+        shell: bash
+        run: |
+          set -euo pipefail
+          size=$(wc -c < resume.pdf)
+          if (( size < 6 || size > 5242880 )) || [[ "$(head -c 5 resume.pdf)" != '%PDF-' ]]; then
+            echo 'Expected a PDF with a %PDF- header and a size of at most 5 MiB.' >&2
+            exit 1
+          fi
+          # Do not print parser diagnostics, extracted text, metadata or attachment names.
+          if ! qpdf --check resume.pdf > /dev/null 2>&1; then
+            echo 'PDF validation failed (including parser warnings).' >&2
+            exit 1
+          fi
+          encrypted=0
+          qpdf --is-encrypted resume.pdf > /dev/null 2>&1 || encrypted=$?
+          if [[ "$encrypted" != 2 ]]; then
+            echo 'The resume must be unencrypted.' >&2
+            exit 1
+          fi
+          if ! pages=$(qpdf --show-npages resume.pdf 2>/dev/null) || [[ ! "$pages" =~ ^[1-9][0-9]*$ ]]; then
+            echo 'The resume must have at least one page.' >&2
+            exit 1
+          fi
+          if ! qpdf --json --json-key=attachments resume.pdf 2>/dev/null \
+            | jq -e '.attachments == {}' > /dev/null 2>&1; then
+            echo 'The resume must not contain file attachments.' >&2
+            exit 1
+          fi
+          digest=$(sha256sum resume.pdf | cut -d ' ' -f 1)
+          printf 'Reviewed file to verify: `resume.pdf`\n\nSHA-256: `%s`\n\nStructural checks do not verify privacy.\n' "$digest" >> "$GITHUB_STEP_SUMMARY"

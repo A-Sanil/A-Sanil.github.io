@@ -88,7 +88,7 @@ export class WindowManager {
       el_.height = `${h}px`;
     }
 
-    const pos = this.#nextPosition(w, h);
+    const pos = this.#nextPosition(w, h, opts.position);
     el_.left = `${pos.x}px`;
     el_.top = `${pos.y}px`;
     el_.zIndex = ++zCounter;
@@ -132,7 +132,7 @@ export class WindowManager {
     return win;
   }
 
-  #nextPosition(w, h) {
+  #nextPosition(w, h, position) {
     if (isMobile()) return { x: 0, y: 0 };
 
     const bounds = this.desktop.getBoundingClientRect();
@@ -143,8 +143,8 @@ export class WindowManager {
     const maxSteps = Math.max(1, Math.floor((bounds.height - h - 40) / step));
     const i = n % maxSteps;
 
-    let x = 32 + i * step;
-    let y = 24 + i * step;
+    let x = position?.x ?? (32 + i * step);
+    let y = position?.y ?? (24 + i * step);
 
     x = Math.max(0, Math.min(x, bounds.width - w));
     y = Math.max(0, Math.min(y, bounds.height - h));

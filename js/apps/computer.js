@@ -31,6 +31,13 @@ export const computerApp = {
             </div>
           </div>
 
+          <div class="mc-intro">
+            <p>I’m a UC Berkeley CS student working on backend infrastructure and performance. At AWS, I built a version-keyed cache that cut calls to a rate-limited API by 37%.</p>
+            <a class="w95-btn mc-resume" href="resume.pdf" target="_blank" rel="noopener">
+              <span aria-hidden="true">${icons.pdfFile}</span>Open résumé (PDF)
+            </a>
+          </div>
+
           <fieldset class="w95-group">
             <legend>System</legend>
             <table class="mc-table">
@@ -38,7 +45,7 @@ export const computerApp = {
               <tr><td>Currently</td><td>SDE Intern, Amazon Web Services</td></tr>
               <tr><td>Institution</td><td>University of California, Berkeley</td></tr>
               <tr><td>Field</td><td>Computer Science</td></tr>
-              <tr><td>Location</td><td>Bay Area, California</td></tr>
+              <tr><td>Home base</td><td>Berkeley, California</td></tr>
               <tr><td>Registered to</td><td>asanil@berkeley.edu</td></tr>
             </table>
           </fieldset>
@@ -46,8 +53,8 @@ export const computerApp = {
           <fieldset class="w95-group">
             <legend>Languages</legend>
             <table class="mc-table">
-              <tr><td>Primary</td><td>Rust, Python, C/C++</td></tr>
-              <tr><td>Also</td><td>JavaScript, Java, Julia, SQL</td></tr>
+              <tr><td>Primary</td><td>Python, Java, C</td></tr>
+              <tr><td>Also</td><td>Rust, Julia, SQL, Bash</td></tr>
               <tr><td>Tooling</td><td>PyTorch, FastAPI, Docker</td></tr>
             </table>
           </fieldset>
@@ -56,8 +63,8 @@ export const computerApp = {
             <legend>Focus</legend>
             <table class="mc-table">
               <tr><td>Infrastructure</td><td>Pipelines, scheduling, storage</td></tr>
-              <tr><td>Low latency</td><td>Tail behaviour over average case</td></tr>
-              <tr><td>ML infra</td><td>Training and serving as systems problems</td></tr>
+              <tr><td>Performance</td><td>Caching, concurrency, parallel simulations</td></tr>
+              <tr><td>ML infrastructure</td><td>Training and validation pipelines</td></tr>
             </table>
           </fieldset>
 
@@ -69,7 +76,7 @@ export const computerApp = {
       </div>
 
       <div class="w95-statusbar">
-        <div class="w95-statusbar-cell">Double-click an icon on the desktop to open an application.</div>
+        <div class="w95-statusbar-cell">Resume.pdf opens in a new browser tab.</div>
       </div>`;
 
     for (const btn of body.querySelectorAll('[data-href]')) {

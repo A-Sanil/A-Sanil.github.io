@@ -1,0 +1,91 @@
+# Template only. Copy to .github/workflows/ in a separate PRIVATE publisher repo.
+name: Publish public résumé from Overleaf
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17,47 * * * *'
+
+permissions: {}
+
+concurrency:
+  group: overleaf-public-resume
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.event.repository.private && (github.event_name == 'workflow_dispatch' || vars.PORTFOLIO_OVERLEAF_ENABLED == 'true') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Get the public-safe project from Overleaf
+        env:
+          PROJECT_ID: ${{ vars.OVERLEAF_RESUME_PROJECT_ID }}
+          OVERLEAF_TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
+        run: |
+          set -euo pipefail
+          [[ "$PROJECT_ID" =~ ^[0-9a-fA-F]{24}$ ]] || { echo 'Set the 24-character Overleaf Git project ID.'; exit 1; }
+          [[ -n "$OVERLEAF_TOKEN" ]] || { echo 'Set OVERLEAF_GIT_TOKEN in this private repo.'; exit 1; }
+          helper=$(mktemp)
+          trap 'rm -f "$helper"' EXIT
+          cat > "$helper" <<'SH'
+          #!/bin/sh
+          printf '%s\n' "$OVERLEAF_TOKEN"
+          SH
+          chmod 700 "$helper"
+          GIT_ASKPASS="$helper" GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone --quiet \
+            "https://git@git.overleaf.com/$PROJECT_ID" "$RUNNER_TEMP/resume-source"
+
+      - name: Compile and check the public PDF
+        env:
+          TEX_FILE: ${{ vars.OVERLEAF_RESUME_MAIN_TEX }}
+        run: |
+          set -euo pipefail
+          TEX_FILE="${TEX_FILE:-main.tex}"
+          [[ "$TEX_FILE" =~ ^[A-Za-z0-9_-]+\.tex$ ]] || { echo 'Use a root-level .tex filename.'; exit 1; }
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended qpdf poppler-utils
+          cd "$RUNNER_TEMP/resume-source"
+          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)" FORCE_SOURCE_DATE=1 TZ=UTC
+          mkdir -p "$RUNNER_TEMP/resume-built"
+          for pass in 1 2; do
+            if ! pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error -jobname=resume \
+                -output-directory="$RUNNER_TEMP/resume-built" "./$TEX_FILE" > "$RUNNER_TEMP/resume-build.log" 2>&1; then
+              echo 'Failed to compile with pdfLaTeX. Check the public-safe project in Overleaf.'; exit 1
+            fi
+          done
+          pdf="$RUNNER_TEMP/resume-built/resume.pdf"
+          qpdf --check "$pdf" >/dev/null 2>&1
+          [[ "$(qpdf --show-npages "$pdf")" == 1 && "$(wc -c < "$pdf")" -lt 5242880 ]]
+          qpdf --json --json-key=attachments "$pdf" | jq -e '.attachments == {}' >/dev/null
+          pdftotext -layout "$pdf" "$RUNNER_TEMP/resume-text.txt"
+          if grep -Eiq '(^|[^0-9])(\+?1[-. ]*)?\(?[0-9]{3}\)?[-. ]*[0-9]{3}[-. ]*[0-9]{4}([^0-9]|$)' "$RUNNER_TEMP/resume-text.txt" \
+             || qpdf --json "$pdf" | grep -Ei 'tel:' >/dev/null; then
+            echo 'Possible phone number or telephone link found; publication blocked.'; exit 1
+          fi
+
+      - name: Publish only resume.pdf
+        env:
+          PORTFOLIO_TOKEN: ${{ secrets.PORTFOLIO_RESUME_PUBLISH_TOKEN }}
+        run: |
+          set -euo pipefail
+          [[ -n "$PORTFOLIO_TOKEN" ]] || { echo 'Set PORTFOLIO_RESUME_PUBLISH_TOKEN in this private repo.'; exit 1; }
+          helper=$(mktemp)
+          trap 'rm -f "$helper"' EXIT
+          cat > "$helper" <<'SH'
+          #!/bin/sh
+          printf '%s\n' "$PORTFOLIO_TOKEN"
+          SH
+          chmod 700 "$helper"
+          export GIT_ASKPASS="$helper" GIT_TERMINAL_PROMPT=0
+          git -c credential.helper= clone --quiet --depth 1 --branch main \
+            https://x-access-token@github.com/A-Sanil/A-Sanil.github.io.git "$RUNNER_TEMP/portfolio"
+          cd "$RUNNER_TEMP/portfolio"
+          [[ ! -L resume.pdf ]] || { echo 'Unexpected symbolic link in portfolio.'; exit 1; }
+          cp "$RUNNER_TEMP/resume-built/resume.pdf" resume.pdf
+          git add -- resume.pdf
+          if git diff --cached --quiet; then echo 'Public résumé already up to date.'; exit 0; fi
+          [[ "$(git diff --cached --name-only)" == resume.pdf ]]
+          git -c user.name='Resume Publisher' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Update public résumé from Overleaf'
+          git -c credential.helper= push origin HEAD:main

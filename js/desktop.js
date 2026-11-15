@@ -9,10 +9,8 @@ import * as icons from './icons.js';
 import { githubApp } from './apps/github.js';
 import { linkedinApp } from './apps/linkedin.js';
 import { projectsApp } from './apps/projects.js';
-import { notepadApp } from './apps/notepad.js';
 import { minesweeperApp } from './apps/minesweeper.js';
 import { computerApp } from './apps/computer.js';
-import { spotifyApp } from './apps/spotify.js';
 
 const desktopEl = document.getElementById('desktop');
 const iconsEl = document.getElementById('icons');
@@ -58,14 +56,13 @@ const openExternal = (url) => window.open(url, '_blank', 'noopener');
 
 const DESKTOP_ICONS = [
   { label: 'My Computer',   icon: icons.myComputer,  app: computerApp },
+  { label: 'Resume.pdf',    icon: icons.pdfFile,     href: 'resume.pdf' },
   { label: 'Projects',      icon: icons.folder,      app: projectsApp },
   { label: 'GitHub.exe',    icon: icons.github,      app: githubApp },
-  { label: 'Spotify.exe',   icon: icons.spotify,     app: spotifyApp },
   // Opens the real profile in a new tab. The in-desktop LinkedIn window is
   // still available from Start -> Programs.
   { label: 'LinkedIn',      icon: icons.linkedin,
     action: () => openExternal('https://www.linkedin.com/in/aaditya-sanil') },
-  { label: 'about_me.txt',  icon: icons.notepad,     app: notepadApp },
   { label: 'Minesweeper',   icon: icons.mine,        app: minesweeperApp },
   {
     label: 'Recycle Bin',
@@ -80,14 +77,15 @@ const DESKTOP_ICONS = [
 
 function paintIcons() {
   iconsEl.innerHTML = DESKTOP_ICONS.map((d, i) => `
-    <div class="icon" data-i="${i}" tabindex="0" role="button">
+    ${d.href ? `<a class="icon icon-link" href="${escapeHtml(d.href)}" target="_blank" rel="noopener" aria-label="Open résumé PDF in a new tab">`
+      : `<div class="icon" data-i="${i}" tabindex="0" role="button">`}
       <div class="icon-img">${d.icon}</div>
       <div class="icon-label">${escapeHtml(d.label)}</div>
-    </div>`).join('');
+    ${d.href ? '</a>' : '</div>'}`).join('');
 
   let selected = null;
 
-  for (const el of iconsEl.querySelectorAll('.icon')) {
+  for (const el of iconsEl.querySelectorAll('.icon[data-i]')) {
     const def = DESKTOP_ICONS[+el.dataset.i];
     const launch = () => (def.app ? wm.open(def.app) : def.action());
 
@@ -120,15 +118,13 @@ const START_ITEMS = [
     label: 'Programs', icon: icons.folder, sub: [
       { label: 'GitHub.exe',   icon: icons.github,  app: githubApp },
       { label: 'LinkedIn.exe', icon: icons.linkedin, app: linkedinApp },
-      { label: 'Spotify.exe',  icon: icons.spotify, app: spotifyApp },
       { label: 'Projects',     icon: icons.folder,  app: projectsApp },
-      { label: 'Notepad',      icon: icons.notepad, app: notepadApp },
       { label: 'Minesweeper',  icon: icons.mine,    app: minesweeperApp },
     ],
   },
   {
     label: 'Documents', icon: icons.notepad, sub: [
-      { label: 'about_me.txt', icon: icons.notepad, app: notepadApp },
+      { label: 'Resume.pdf', icon: icons.pdfFile, href: 'resume.pdf' },
     ],
   },
   {
@@ -141,7 +137,7 @@ const START_ITEMS = [
     label: 'Help', icon: icons.helpBook,
     action: () => messageBox({
       title: 'Help',
-      text: 'Double-click a desktop icon to open it.<br>' +
+      text: 'Click Resume.pdf to open it in a new tab. Double-click other desktop icons to open them.<br>' +
             'Drag title bars to move windows, edges to resize.<br><br>' +
             'In Minesweeper, right-click to flag and middle-click a number to chord.',
     }),
@@ -162,6 +158,7 @@ const START_ITEMS = [
 function renderStartItems(items) {
   return items.map((item, i) => {
     if (item.separator) return '<div class="start-sep"></div>';
+    if (item.href) return `<a class="start-item start-link" href="${escapeHtml(item.href)}" target="_blank" rel="noopener">${item.icon ?? ''}<span>${escapeHtml(item.label)}</span></a>`;
     const hasSub = !!item.sub;
     return `
       <div class="start-item${hasSub ? ' has-sub' : ''}" data-path="${i}">
@@ -190,6 +187,8 @@ function buildStartMenu() {
         // On mobile the submenu is always expanded, so the parent is inert.
         if (isMobile()) continue;
         el.addEventListener('click', (e) => e.stopPropagation());
+      } else if (item.href) {
+        el.addEventListener('click', closeStart);
       } else {
         el.addEventListener('click', () => {
           closeStart();
@@ -292,10 +291,10 @@ const BIOS = [
   'Detecting IDE Primary Master   ... A-SANIL-PORTFOLIO',
   'Detecting IDE Primary Slave    ... GITHUB.EXE',
   'Detecting IDE Secondary Master ... LINKEDIN.EXE',
-  'Detecting IDE Secondary Slave  ... SPOTIFY.EXE',
+  'Detecting IDE Secondary Slave  ... RESUME.PDF',
   '',
   'Berkeley, CA                   ... OK',
-  'Rust / Python / C++            ... OK',
+  'Python / Java / C / Rust       ... OK',
   'Coffee                         ... NOT FOUND',
   '',
   'Starting Windows 95...',
@@ -343,7 +342,7 @@ async function boot() {
 
   // Nothing is auto-opened on a phone — a window would cover the desktop
   // before the visitor has seen there is one.
-  if (!isMobile()) wm.open(computerApp);
+  if (!isMobile()) wm.open(computerApp, { position: { x: 104, y: 34 } });
 }
 
 /* =================================================================== init */
