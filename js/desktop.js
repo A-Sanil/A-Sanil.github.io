@@ -5,6 +5,7 @@
 
 import { WindowManager, isMobile, escapeHtml } from './wm.js';
 import * as icons from './icons.js';
+import { initAnalytics } from './analytics.js';
 
 import { githubApp } from './apps/github.js';
 import { linkedinApp } from './apps/linkedin.js';
@@ -342,11 +343,13 @@ async function boot() {
 
   // Nothing is auto-opened on a phone — a window would cover the desktop
   // before the visitor has seen there is one.
-  if (!isMobile()) wm.open(computerApp, { position: { x: 104, y: 34 } });
+  // silent: this window is the shell's doing, not a visitor's click.
+  if (!isMobile()) wm.open(computerApp, { position: { x: 104, y: 34 }, silent: true });
 }
 
 /* =================================================================== init */
 
+initAnalytics();
 paintIcons();
 buildStartMenu();
 buildContextMenu();
