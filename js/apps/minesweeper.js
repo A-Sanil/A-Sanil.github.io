@@ -2,6 +2,7 @@
    minesweeper.js — the real thing: first-click safety, flags, chording,
    the three standard difficulties, LED counters and a smiley that reacts.
    ========================================================================== */
+import { track } from '../analytics.js';
 
 import * as icons from '../icons.js';
 
@@ -273,6 +274,7 @@ class Minesweeper {
     if (this.revealedCount !== this.cells.length - this.mines) return;
 
     this.over = true;
+    track('Minesweeper: won', { level: this.levelKey, seconds: this.time });
     this.won = true;
     this.stopTimer();
     this.faceEl.textContent = '😎';
