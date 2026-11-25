@@ -10,6 +10,8 @@
        resizable = true, singleton = true, menu = [], mount(body, win) }
    ========================================================================== */
 
+import { track } from './analytics.js';
+
 const MOBILE_QUERY = '(max-width: 767px), (pointer: coarse) and (max-width: 900px)';
 
 /* Keep this in sync with the media query in desktop.css — the JS needs to
@@ -66,6 +68,7 @@ export class WindowManager {
     }
 
     this.focus(win);
+    if (!opts.silent) track(`Open: ${win.title}`, { app: app.id });
     return win;
   }
 
